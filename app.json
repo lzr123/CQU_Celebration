@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/query/query"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "校庆车辆调派系统",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap79.json"
+}
