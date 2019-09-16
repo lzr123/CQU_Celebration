@@ -60,13 +60,13 @@
 }
 
 .reset {
-  background-color: #08b825cb;
+  background-color: #08b825;
   color: #eeeeee;
 }
 
 .reset_hover {
-  background-color: #08b82521;
-
+  background-color: #08b825;
+  opacity: 0.5;
 }
 
 .search {
@@ -75,7 +75,8 @@
 }
 
 .search_hover {
-  background-color: #4aa8df60;
+  background-color: #4aa8df;
+  opacity: 0.5;
 }
 
 .result_list {

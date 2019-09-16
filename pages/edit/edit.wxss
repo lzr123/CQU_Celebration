@@ -1,0 +1,42 @@
+/* pages/edit/edit.wxss */
+
+.container {
+  margin: 10rpx;
+  padding: 10rpx;
+  background-color: #fafafad3;
+  border-radius: 10px;
+}
+
+.select_type {
+  /* border: solid 1px; */
+
+}
+
+.sel_title {
+  font-size: 40rpx;
+  text-align: left;
+  margin: 10rpx;
+
+}
+
+.radio-gp {
+  display: flex;
+  flex-direction: row;
+  /* border: solid 1px; */
+  padding: 10rpx;
+  margin: 5rpx;
+}
+
+.radio-item {
+  padding: 10rpx;
+  margin: 10rpx;
+}
+
+.radio-label {
+  padding: 10rpx;
+}
+
+.vehicle-ID {
+  display: flex;
+  flex-direction: row;
+}

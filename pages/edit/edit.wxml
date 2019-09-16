@@ -1,0 +1,48 @@
+<!--pages/edit/edit.wxml-->
+<view class="background">
+  <view class="container">
+
+    <view class="select_type">
+      <view class="sel_title">请选择类型</view>
+      <form>
+        <radio-group name="data_type" class="radio-gp">
+          <block>
+            <view wx:for="{{data_types}}">
+              <label class="radio-label"><radio value="{{item.value}}" checked="{{item.checked}}" class="radio-item"/>{{item.label}}</label>
+            </view>
+          </block>
+        </radio-group>
+      </form>
+    </view>
+
+    <view class="form">
+      <form>
+        <block>
+          <view wx:if="{{select_type === \"车辆\"}}">
+            <view class="vehicle-ID">
+              <view>
+                <view>车牌地区</view>
+                <picker bindchange="bindVehicleIDAreaPickerChange" mode="selector" range="{{vehicle_area_list}}" value="0">
+                  <view>{{vehicleID_area}}</view>
+                </picker>
+              </view>
+
+              <view>
+                <view>牌号</view>
+                <input class="vehicle-IDnum"></input>
+              </view>
+            </view>
+            
+          </view>
+          <view wx:elif="{{select_type === \"司机\"}}">
+
+          </view>
+          <view wx:elif="{{select_type === \"来宾\"}}">
+
+          </view>
+        </block>
+      </form>
+    </view>
+
+  </view>
+</view>

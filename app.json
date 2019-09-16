@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/edit/edit",
     "pages/query/query"
+    
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -8,6 +10,23 @@
     "navigationBarTitleText": "校庆车辆调派系统",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#cccccc",
+    "selectColor": "#8cc63f",
+    "borderStyle": "black",
+    "list": [{
+      "pagePath": "pages/query/query",
+      "text": "查询",
+      "iconPath": "resources/icons/search.png",
+      "selectedIconPath": "resources/icons/search_sel.png"
+    },
+    {
+      "pagePath": "pages/edit/edit",
+      "text": "编辑",
+      "iconPath": "resources/icons/edit.png",
+      "selectedIconPath": "resources/icons/edit_sel.png"
+    }]
   },
   "sitemapLocation": "sitemap79.json"
 }
