@@ -1,42 +1,270 @@
 /* pages/edit/edit.wxss */
 
 .container {
-  margin: 10rpx;
-  padding: 10rpx;
-  background-color: #fafafad3;
-  border-radius: 10px;
-}
-
-.select_type {
-  /* border: solid 1px; */
-
-}
-
-.sel_title {
-  font-size: 40rpx;
-  text-align: left;
-  margin: 10rpx;
-
-}
-
-.radio-gp {
-  display: flex;
-  flex-direction: row;
-  /* border: solid 1px; */
-  padding: 10rpx;
   margin: 5rpx;
+  padding: 3rpx;
+  width: 95%;
+  border: 1px solid;
 }
 
-.radio-item {
+.picker-content {
+  /* border: 1px solid; */
+  border-radius: 5px;
+  background-color: #ededed;
+  color: #cecece;
+  font-size: 25rpx;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+  margin: 3rpx 10rpx 3rpx 10rpx;
+  text-align: center;
+}
+
+.vehicle-info {
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #fefefe;
+  width: 95%;
+}
+
+.vehicle-info-title {
+  /* border: 1px solid; */
+  text-align: center;
+  font-size: 50rpx;
+  background-color: aquamarine;
+  opacity: 0.7;
+  border-radius: 5px;
+  padding: 5rpx;
+  margin: 20rpx;
+}
+
+.vehicle-brand {
+  font-size: 40rpx;
+  border-bottom: 1px solid #cccccc;
+  /* border: 1px solid; */
+  margin: 5rpx;
+  padding: 5rpx;
+}
+
+/* .vehicle-brand-content {
+  border: 1px solid;
+  margin: 5rpx;
+  padding: 5rpx;
+} */
+
+.vehicle-brand-title {
+  /* border: 1px solid; */
+  margin: 3rpx 3rpx 3rpx 3rpx;
+  padding: 5rpx 5rpx 5rpx 5rpx;
+  font-size: 25rpx;
+  text-align: center;
+  color: #888888;
+}
+
+.vehicle-id {
+  /* border: solid 1px; */
+  border-bottom: 1px solid #cccccc;
+  margin: 5rpx;
+  padding: 5rpx;
+}
+
+.vehicle-id-title {
+  border: solid 1px;
+  padding: 5rpx 5rpx 5rpx 5rpx;
+  margin: 3rpx 3rpx 3rpx 3rpx;
+  text-align: center;
+  font-size: 25rpx;
+  color: #888888;
+}
+
+.vehicle-id-input {
+  border: 1px solid;
+  border-radius: 3px;
+  background-color: #ededed;
+  color: #888888;
+  font-size: 25rpx;
+  text-align: left;
+  margin: 3rpx 3rpx 3rpx 3rpx;
+  padding: 1rpx 1rpx 1rpx 1rpx;
+}
+
+.vehicle-color {
+  /* border: 1px solid; */
+  border-bottom: 1px solid #cccccc;
+  margin: 3rpx;
+  padding: 5rpx;
+}
+
+.vehicle-color-title {
+  /* border: solid 1px; */
+  color: #888888;
+  padding: 5rpx;
+  margin: 3rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+
+.vehicle-color-other {
+  /* border: 1px solid; */
+  border-radius: 3px;
+  background: #ededed;
+  color: #888888;
+  font-size: 25rpx;
+  text-align: left;
+  margin: 3rpx;
+  padding: 1rpx;
+  width: 150rpx;
+}
+
+.driver-info {
+  border-bottom: 1px solid #cccccc;
+  margin: 5rpx;
+  padding: 5rpx;
+}
+
+.driver-info-title {
+  padding: 5rpx;
+  margin: 3rpx;
+  text-align: left;
+  font-size: 40rpx;
+  color: #888888;
+}
+
+.driver-name {
+  border-bottom: 1px solid #cccccc;
+  margin: 5rpx;
+  padding: 5rpx;
+}
+
+.driver-name-title {
+  color: #888888;
+  padding: 5rpx;
+  margin: 3rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+
+.driver-name-input {
+  border-radius: 3px;
+  background-color: #ededed;
+  color: #888888;
+  font-size: 25rpx;
+  text-align: left;
+  margin: 3rpx;
+  padding: 1rpx;
+}
+
+.driver-gender {
+  border-bottom: 1px solid #cccccc;
+  margin: 5rpx;
+  padding: 5rpx;
+  font-size: 25rpx;
+}
+
+.driver-gender-title {
+  color: #888888;
+  padding: 5rpx;
+  margin: 3rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+
+.driver-tel {
+  border-bottom: 1px solid #cccccc;
+  margin: 5rpx;
+  padding: 5rpx;
+}
+
+.driver-tel-title {
+  color: #888888;
+  padding: 5rpx;
+  margin: 3rpx;
+  text-align: center;
+  font-size: 25rpx;
+}
+
+.driver-tel-input {
+  border-radius: 5px;
+  background-color: #ededed;
+  color: #888888;
+  font-size: 25rpx;
+  text-align: left;
+  margin: 3rpx;
+  padding: 1rpx;
+}
+
+.submit-btn {
+  width: 320rpx;
+  min-height: 30rpx;
+  margin: 15rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1px #ddd;
+}
+
+.submit {
+  background-color: #4aa8df;
+  color: #eeeeee;
+}
+
+.submit_hover {
+  background-color: #4aa8df;
+  opacity: 0.5;
+}
+
+.info-basic {
+  border: 1px solid;
   padding: 10rpx;
-  margin: 10rpx;
+}
+
+.info-item {
+  border: 1px solid;
+  padding: 5rpx;
+  position: relative;
+}
+
+.info-item-title {
+  border: 1px solid;
+  font-size: 30rpx;
+  padding: 5rpx;
+  text-align: left;
+  color: #888888;
+}
+
+.input {
+  border: 1px solid;
+  border-radius: 3px;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  background-color: #efefef;
+  position:absolute;
+  right: 0;
+}
+
+.picker {
+  border: 1px solid;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.picker-title {
+  border: 1px solid;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 5rpx;
+  color: #888888;
 }
 
 .radio-label {
-  padding: 10rpx;
+  font-size: 30rpx;
+  text-align: center;
+  margin: 10rpx;
+  padding: 5rpx;
+  color: #888888;
 }
 
-.vehicle-ID {
-  display: flex;
-  flex-direction: row;
+.radio-item {
+  transform: scale(0.7);
+  align-items: center;
+  margin: 5rpx;
 }

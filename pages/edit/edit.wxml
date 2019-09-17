@@ -2,47 +2,181 @@
 <view class="background">
   <view class="container">
 
-    <view class="select_type">
-      <view class="sel_title">请选择类型</view>
-      <form>
-        <radio-group name="data_type" class="radio-gp">
-          <block>
-            <view wx:for="{{data_types}}">
-              <label class="radio-label"><radio value="{{item.value}}" checked="{{item.checked}}" class="radio-item"/>{{item.label}}</label>
-            </view>
-          </block>
-        </radio-group>
-      </form>
+    <view style="color: #777777;">请选择录入信息种类</view>
+    <block>
+      <radio-group name="type_radio_gp" bindchange="bindTypeChange" style="display: flex; flex-direction: row;">
+        <view wx:for="{{data_types}}" style="margin: 5rpx; padding: 3rpx;">
+          <label style="font-size: 30rpx; margin: 5rpx; padding: 5rpx;"><radio value="{{item.value}}" checked="{{item.checked}}" style="transform: scale(0.7);"/>{{item.label}}</label>
+        </view>
+      </radio-group>
+    </block>
+
+    <block>
+    <!-- 车辆驾驶员信息录入 -->
+    <view wx:if="{{select_type === \"vehicle\"}}" style="width: 100%; border: 1px solid;">
+      <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">车辆信息</view>
+
+      <view class="info-basic">
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">车辆品牌：</view>
+          <picker class="picker" mode="selector" range="{{vehicle_brand}}" value="{{select_brand_idx}}" bindchange="bindVehicleBrandChange">
+            <view class="picker-title">{{vehicle_brand[select_brand_idx]}}</view>
+          </picker>
+          <view class="info-item-title" style="position: absolute; right: 0;">准乘{{vehicle_capacity[select_brand_idx]}}人</view>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">车牌号：</view>
+          <input class="input" bindchange="bindVehicleIDInput"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">颜色：</view>
+          <picker class="picker" mode="selector" range="{{vehicle_color}}" value="{{select_color_idx}}" bindchange="bindVehicleColorChange">
+            <view class="picker-title">{{vehicle_color[select_color_idx]}}</view>
+          </picker>
+          <input class="input" bindchange="bindVehicleOtherColorInput" wx:if="{{select_color_idx == 5}}"></input>
+        </view>
+        
+      </view>
+
+      <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">司机信息</view>
+
+      <view class="info-basic">
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">姓名：</view>
+          <input class="input" bindchange="bindDriverNameInput"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row">
+          <view class="info-item-title">性别：</view>
+          <radio-group name="driver_gender" bindchange="bindDriverGenderChange">
+            <label class="radio-label"><radio value="male" checked class="radio-item"/>男</label>
+            <label class="radio-label"><radio value="female" class="radio-item"/>女</label>
+          </radio-group>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row">
+          <view class="info-item-title">电话：</view>
+          <input class="input" bindchange="bindDriverTelInput"></input>
+        </view>
+
+      </view>
+
     </view>
 
-    <view class="form">
-      <form>
-        <block>
-          <view wx:if="{{select_type === \"车辆\"}}">
-            <view class="vehicle-ID">
-              <view>
-                <view>车牌地区</view>
-                <picker bindchange="bindVehicleIDAreaPickerChange" mode="selector" range="{{vehicle_area_list}}" value="0">
-                  <view>{{vehicleID_area}}</view>
-                </picker>
-              </view>
+    <!-- 来宾联系人录入界面 -->
 
-              <view>
-                <view>牌号</view>
-                <input class="vehicle-IDnum"></input>
-              </view>
-            </view>
-            
-          </view>
-          <view wx:elif="{{select_type === \"司机\"}}">
+    <view wx:elif="{{select_type === \"visitor\"}}" style="width: 100%; border: 1px solid;">
 
-          </view>
-          <view wx:elif="{{select_type === \"来宾\"}}">
+      <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">来宾信息</view>
 
-          </view>
-        </block>
-      </form>
+      <view class="info-basic">
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">单位：</view>
+          <input class="input" bindchange="bindVisitorUnitChange"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">级别：</view>
+          <picker class="picker" mode="selector" range="{{visitor_level}}" value="{{select_level_idx}}" bindchange="bindVisitorLevelChange">
+            <view class="picker-title">{{visitor_level[select_level_idx]}}</view>
+          </picker>
+          <input class="input" bindchange="bindVisitorLevelInput" wx:if="{{select_level_idx == 4}}"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">随行人数：</view>
+          <input class="input" bindchange="bindVisitorCountChange"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">抵达日期：</view>
+          <picker class="picker" mode="date" bindchange="bindArrivalTimeChange" value="{{arrival_date}}">
+            <view class="picker-title">{{arrival_date}}</view>
+          </picker>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">抵达时间：</view>
+          <picker class="picker" mode="time" bindchange="bindArrivalTimeChange" value="{{arrival_time}}">
+            <view class="picker-title">{{arrival_time}}</view>
+          </picker>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">离开日期：</view>
+          <picker class="picker" mode="date" bindchange="bindLeaveDateChange" value="{{leave_date}}">
+            <view class="picker-title">{{leave_date}}</view>
+          </picker>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">离开时间：</view>
+          <picker class="picker" mode="time" bindchange="bindLeaveTimeChange" value="{{leave_time}}">
+            <view class="picker-title">{{leave_time}}</view>
+          </picker>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">抵达航班列车：</view>
+          <input class="input" bindchange="bindVisitorArriveFightChange"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">离开航班/列车：</view>
+          <input class="input" bindchange="bindVisitorLeaveFightChange"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">住宿酒店：</view>
+          <picker class="picker" mode="selector" range="{{hotel_list}}" value="{{select_hotel_idx}}" bindchange="bindVisitorHotelChange">
+            <view class="picker-title">{{hotel_list[select_hotel_idx]}}</view>
+          </picker>
+          <input class="input" bindchange="bindVisitorHotelInput"></input>
+        </view>
+
+      </view>
+
+      <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">联络人信息</view>
+
+      <!-- 联络人信息录入 -->
+      <view class="info-basic">
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">工号：</view>
+          <input class="input" bindchange="bindContactorIDInput"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">姓名：</view>
+          <input class="input" bindchange="bindContactorNameInput"></input>
+        </view>
+
+        <view class="info-item" style="display: flex: flex-flow: row;">
+          <view class="info-item-title">性别：</view>
+          <radio-group name="contactor_gender" bindchange="bindContactorGenderChange" class="radio-gp">
+            <label class="radio-label"><radio value="male"  class="radio-item" checked/>男</label>
+            <label class="radio-label"><radio value="female" class="radio-item"/>女</label>
+          </radio-group>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">单位：</view>
+          <input class="input" bindchange="bindContactorUnitInput"></input>
+        </view>
+
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">电话：</view>
+          <input class="input" bindchange="bindContactorTelInput"></input>
+        </view>
+      </view>
     </view>
+    </block>
 
+    <view style="display: flex; flex-direction: row;">
+      <button class="submit-btn submit" hover-class="submit_hover">提交</button>
+    </view>
   </view>
 </view>
