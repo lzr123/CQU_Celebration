@@ -1,4 +1,5 @@
 // pages/edit/edit.js
+var util = require("../../utils/util.js")
 Page({
 
   /**
@@ -9,17 +10,12 @@ Page({
     data_types: [
       {
         value: "vehicle",
-        checked: true,
+        checked: false,
         label: "车辆"
       },
       {
-        value: "contactor",
-        checked: false,
-        label: "联系人"
-      },
-      {
         value: "visitor",
-        checked: false,
+        checked: true,
         label: "来宾"
       }
     ],
@@ -47,112 +43,96 @@ Page({
 
     select_brand_idx: 0,
     select_color_idx: 5,
-    vehicle_ID: "",
-    color: "",
-    driver_name: "",
-    driver_gender: "",
-    driver_tel: "",
 
 
-    select_level_idx: 4,
-    select_hotel_idx: 5,
-
-    select_level: "",
-    select_hotel: ""
+    select_level_idx: 0,
+    select_hotel_idx: 0,
+    arrival_date: "",
+    arrival_time: "",
+    leave_date: "",
+    leave_time: ""
   },
 
-  /**
-   * 数据类型选择按钮回调
-   */
   bindTypeChange: function(e) {
     this.setData({
-      select_type: e.detail.value,
-      select_brand_idx: 0,
-      select_color_idx: 5,
-
-      vehicle_ID: "",
-      brand: "",
-      color: "",
-      driver_name: "",
-      driver_gender: "",
-      driver_tel: ""
-
+      select_type: e.detail.value
     })
   },
 
-  /**
-   * 车辆品牌选择器回调
-   */
-  bindVehicleBrandChange: function (e) {
-    
-    var brand_idx = e.detail.value * 1
-
+  bindVehicleBrandChange: function(e) {
     this.setData({
-      select_brand_idx: e.detail.value * 1,
-      brand: this.data.vehicle_brand[brand_idx]
+      select_brand_idx: e.detail.value
     })
-
-    console.log(this.data)
   },
 
-  /**
-   * 车牌号输入回调
-   */
-  bindVehicleIDInput: function (e) {
-
-    this.setData({
-        vehicle_ID: e.detail.value,
-    })
-
-    console.log(this.data)
-  },
-
-  /**
-   * 车辆颜色选择器回调
-   */
   bindVehicleColorChange: function(e) {
-    var color_idx = e.detail.value*1
     this.setData({
-      select_color_idx: e.detail.value*1,
-      color: this.data.vehicle_color[color_idx]
+      select_color_idx: e.detail.value
     })
   },
 
   /**
-   * 司机名字输入回调
+   * submit button click callback
    */
-  bindDriverNameInput: function(e) {
-    var name = e.detail.value
-
-    this.setData({
-      driver_name: name
-    })
-
-    console.log(this.data)
-  },
-  
-  /**
-   * 司机性别回调
-   */
-  bindDriverGenderChange: function(e) {
-    var gender = e.detail.value
-
-    this.setData({
-      driver_gender: gender == "female"?"女":"男"
-    })
-
-    console.log(this.data)
-  },
-
-  bindDriverTelChange: function(e) {
-    
-    this.setData({
-      driver_tel: e.detail.value
-    })
-
+  bindFormSubmit: function(e) {
     console.log(e)
   },
 
+  /**
+   * visitor level picker callback
+   */
+  bindVisitorLevelChange: function(e) {
+    this.setData({
+      select_level_idx: e.detail.value
+    })
+  },
+
+  /**
+   * arrival date picker callback
+   */
+  bindArrivalDateChange: function(e) {
+    this.setData({
+      arrival_date: e.detail.value
+    })
+  },
+
+  /**
+   * arrival time picker callback
+   */
+  bindArrivalTimeChange: function(e) {
+    this.setData({
+      arrival_time: e.detail.value
+    })
+  },
+
+  /**
+   * leave date picker callback
+   */
+  bindLeaveDateChange: function(e) {
+    this.setData({
+      leave_date: e.detail.value
+    })
+  },
+
+  /**
+   * leave time picker callback
+   */
+  bindLeaveTimeChange: function(e) {
+    this.setData({
+      leave_time: e.detail.value
+    })
+  },
+
+  /**
+   * visitor hotel picker callback
+   */
+  bindVisitorHotelChange: function(e) {
+    this.setData({
+      select_hotel_idx: e.detail.value
+    })
+  },
+
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -171,6 +151,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var crt_datetime = util.formatTime(new Date()).split(' ')
+    var crt_date = crt_datetime[0]
+    var crt_time = crt_datetime[1].split(':').slice(0, 2).join(':')
+    
+    this.setData({
+      arrival_date: crt_date,
+      arrival_time: crt_time,
+      leave_date: crt_date,
+      leave_time: crt_time
+    })
 
   },
 

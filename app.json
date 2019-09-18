@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/edit/edit",
-    "pages/query/query"
+    "pages/query/query",
+    "pages/departure/departure"
     
   ],
   "window": {
@@ -15,7 +16,12 @@
     "color": "#cccccc",
     "selectColor": "#8cc63f",
     "borderStyle": "black",
-    "list": [{
+    "list": [
+    {
+      "pagePath": "pages/departure/departure",
+      "text": "分派"
+    },
+    {
       "pagePath": "pages/query/query",
       "text": "查询",
       "iconPath": "resources/icons/search.png",
