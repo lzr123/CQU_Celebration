@@ -1,1 +1,12 @@
 /* pages/departure/departure.wxss */
+@import "../common_style.wxss";
+
+.search-btn {
+  background-color: #4aa8df;
+  color: #eeeeee;
+}
+
+.search-hover {
+  background-color: #4aa8df;
+  opacity: 0.7;
+}

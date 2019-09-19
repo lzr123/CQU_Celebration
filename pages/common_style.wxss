@@ -1,0 +1,92 @@
+.container {
+  margin: 5rpx;
+  padding: 3rpx;
+  width: 95%;
+  border: 1px solid;
+}
+
+.info-basic {
+  border: 1px solid;
+  padding: 10rpx;
+}
+
+.info-item {
+  display: flex;
+  flex-flow: row;
+  border: 1px solid;
+  padding: 5rpx;
+  position: relative;
+}
+
+.info-item-title {
+  border: 1px solid;
+  font-size: 30rpx;
+  padding: 5rpx;
+  text-align: left;
+  color: #888888;
+}
+
+.info-hint {
+  border: 1px solid;
+  font-size: 30rpx;
+  padding: 5rpx;
+  text-align: left;
+  margin: 3rpx;
+  color: #aaaaaa;
+}
+
+.input {
+  border: 1px solid;
+  border-radius: 3px;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  background-color: #efefef;
+  position:absolute;
+  right: 0;
+}
+
+.picker {
+  border: 1px solid;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.picker-title {
+  border: 1px solid;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 5rpx;
+  color: #888888;
+}
+
+.picker-container {
+  border: 1px solid;
+  margin: 5rpx;
+  padding: 3rpx;
+}
+
+
+.radio-label {
+  font-size: 30rpx;
+  text-align: center;
+  margin: 10rpx;
+  padding: 5rpx;
+  color: #888888;
+}
+
+.radio-item {
+  transform: scale(0.7);
+  align-items: center;
+  margin: 5rpx;
+}
+
+.common-btn {
+  width: 320rpx;
+  min-height: 30rpx;
+  margin: 15rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1px #ddd;
+}

@@ -1,2 +1,74 @@
 <!--pages/departure/departure.wxml-->
-<text>pages/departure/departure.wxml</text>
+<view class="container">
+
+  <view class="visitor_search" style="width: 100%;">
+    <view class="info-basic">
+
+      <view class="info-item" style="display: flex; flex-flow: row;">
+        <view class="info-item-title">来宾单位：</view>
+        <input class="input"></input>
+      </view>
+
+      <view class="info-item" style="display: flex; flex-flow: row;">
+        <button class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;" bindtap="bindSearchVisitorTap">查找</button>
+      </view>
+  
+    </view>
+
+    <view class="info-basic" wx:if="{{visitor_info != null}}">
+
+      <view class="info-item">
+        <view class="info-hint">单位：</view>
+        <view class="info-hint">{{visitor_info.unit}}</view>
+        <view class="info-hint">人数：</view>
+        <view class="info-hint">{{visitor_info.count}}人</view>
+        <view class="info-hint">级别：</view>
+        <view class="info-hint">{{visitor_info.level}}</view>
+      </view>
+
+      <view class="info-item" style="display: flex; flex-flow: row;">
+        <view class="info-hint">到达：</view>
+        <view class="info-hint">{{visitor_info.arrival_date}}</view>
+        <view class="info-hint">{{visitor_info.arrival_time}}</view>
+        <view class="info-hint">{{visitor_info.arrival_flight}}</view>
+      </view>
+
+      <view class="info-item">
+        <view class="info-hint">离开：</view>
+        <view class="info-hint">{{visitor_info.leave_date}}</view>
+        <view class="info-hint">{{visitor_info.leave_time}}</view>
+        <view class="info-hint">{{visitor_info.leave_flight}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="vehicle-search" style="width: 100%">
+    <view class="info-basic">
+
+      <view class="info-item">
+
+        <view class="picker-container" style="width: 100%">
+          <view class="info-item-title" style="text-align: center;">选择日期</view>
+          <picker class="picker" mode="date" value="{{select_date}}" bindchange="bindDateSelectChange">
+            <view class="picker-title">{{select_date}}</view>
+          </picker>
+        </view>
+
+        <view class="picker-container" style="width: 100%">
+          <view class="info-item-title" style="text-align: center;">选择时间</view>
+          <picker class="picker" mode="time" value="{{select_time}}" bindchange="bindTimeSelectChange">
+            <view class="picker-title">{{select_time}}</view>
+          </picker>
+        </view>
+
+      </view>
+
+      <view class="table-view">
+      <!-- ---TODO--- -->
+      </view>
+
+    </view>
+  </view>
+
+  
+</view>

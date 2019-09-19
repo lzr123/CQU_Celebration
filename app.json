@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/departure/departure",
     "pages/edit/edit",
-    "pages/query/query",
-    "pages/departure/departure"
+    "pages/query/query"
     
   ],
   "window": {
