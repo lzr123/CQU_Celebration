@@ -1,0 +1,21 @@
+/* pages/management/management.wxss */
+@import "../common_style.wxss";
+
+.submit-btn {
+  width: 320rpx;
+  min-height: 30rpx;
+  margin: 15rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1px #ddd;
+}
+
+.submit {
+  background-color: #4aa8df;
+  color: #eeeeee;
+}
+
+.submit_hover {
+  background-color: #4aa8df;
+  opacity: 0.5;
+}

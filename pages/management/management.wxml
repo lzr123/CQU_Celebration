@@ -1,0 +1,74 @@
+<!--pages/management/management.wxml-->
+<view class="container">
+
+  <view style="color: #777777;">请选择查询信息种类</view>
+    <block>
+      <radio-group name="type_radio_gp" bindchange="bindTypeChange" style="display: flex; flex-direction: row;">
+        <view wx:for="{{data_types}}" style="margin: 5rpx; padding: 3rpx;">
+          <label style="font-size: 30rpx; margin: 5rpx; padding: 5rpx;"><radio value="{{item.value}}" checked="{{item.checked}}" style="transform: scale(0.7);"/>{{item.label}}</label>
+        </view>
+      </radio-group>
+
+      <view  class="info-basic" wx:if="{{select_type === \"vehicle\"}}">
+        <picker class="picker" mode="selector" range="{{vehicle_brand}}" value="select_vehicle_brand_idx" bindchange="bindVehicleBrandChange">
+          <view class="picker-title">车辆品牌：{{vehicle_brand[select_vehicle_brand_idx]}}</view>
+        </picker>
+      </view>
+
+      <button class="common-btn submit"  hover-class="submit_hover" size='mini' style="width: 95%;" bindtap="bindSearchTap">查询</button>
+    </block>
+  
+
+  <block>
+    <view style="width: 100%;">
+      <view class="info-basic" wx:if="{{select_type === \"vehicle\"}}">
+        <view class="tabel-view">
+
+          <view class="tabel-row">
+            <view class="tabel-item">车牌号</view>
+            <view class="tabel-item">车型</view>
+            <view class="tabel-item">颜色</view>
+            <view class="tabel-item">司机</view>
+          </view>
+
+          <view wx:for="{{vehicle_data}}">
+            <view data-item-id="{{index}}" class="tabel-row" bindtap="bindTabelRowTap">
+              <view data-item-id="{{index}}" class="tabel-item">{{item.license}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.brand}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.color}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.driver_name}}</view>
+            </view>
+          </view>
+
+
+        </view>
+      </view>
+
+      <view class="info-basic" wx:if="{{select_type === \"visitor\"}}">
+        <view class="tabel-view">
+
+          <view class="tabel-row">
+            <view class="tabel-item">来宾单位</view>
+            <view class="tabel-item">来宾人数</view>
+            <view class="tabel-item">来宾级别</view>
+            <view class="tabel-item">联系人</view>
+          </view>
+
+          <view wx:for="{{visitor_data}}">
+            <view data-item-id="{{index}}" class="tabel-row" bindtap="bindTabelRowTap">
+              <view data-item-id="{{index}}" class="tabel-item">{{item.company}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.retinues}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.level}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.greeter_name}}</view>
+            </view>
+          </view>
+          
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+    
+
+</view>

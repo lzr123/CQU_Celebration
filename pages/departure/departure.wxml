@@ -44,24 +44,34 @@
 
   <view class="vehicle-search" style="width: 100%">
     <view class="info-basic">
+      <form bindsubmit="bindSearchVehicleSubmit">
+        <view class="info-item">
 
-      <view class="info-item">
+          <view class="picker-container" style="width: 100%">
+            <view class="info-item-title" style="text-align: center;">选择日期</view>
+            <picker name="date" class="picker" mode="date" value="{{select_date}}" bindchange="bindDateSelectChange">
+              <view class="picker-title">{{select_date}}</view>
+            </picker>
+          </view>
 
-        <view class="picker-container" style="width: 100%">
-          <view class="info-item-title" style="text-align: center;">选择日期</view>
-          <picker class="picker" mode="date" value="{{select_date}}" bindchange="bindDateSelectChange">
-            <view class="picker-title">{{select_date}}</view>
-          </picker>
+          <view class="picker-container" style="width: 100%">
+            <view class="info-item-title" style="text-align: center;">选择时间</view>
+            <picker name="time" class="picker" mode="time" value="{{select_time}}" bindchange="bindTimeSelectChange">
+              <view class="picker-title">{{select_time}}</view>
+            </picker>
+          </view>
+
         </view>
 
-        <view class="picker-container" style="width: 100%">
-          <view class="info-item-title" style="text-align: center;">选择时间</view>
-          <picker class="picker" mode="time" value="{{select_time}}" bindchange="bindTimeSelectChange">
-            <view class="picker-title">{{select_time}}</view>
+        <view class="info-item">
+          <view class="info-item-title">选择车型</view>
+          <picker name="brand" class="picker" mode="selector" range="{{vehicle_brand}}" value="{{select_brand_idx}}">
+            <view class="picker-title">{{vehicle_brand[select_brand_idx]}}</view>
           </picker>
-        </view>
 
-      </view>
+        </view>
+        <button formType="submit" class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;">提交</button>
+      </form>
 
       <view class="table-view">
       <!-- ---TODO--- -->

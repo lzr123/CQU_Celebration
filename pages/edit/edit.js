@@ -1,5 +1,7 @@
 // pages/edit/edit.js
 var util = require("../../utils/util.js")
+var network = require("../../utils/network.js")
+var dataUtils = require("../../utils/dataUtils.js")
 Page({
 
   /**
@@ -10,12 +12,12 @@ Page({
     data_types: [
       {
         value: "vehicle",
-        checked: false,
+        checked: true,
         label: "车辆"
       },
       {
         value: "visitor",
-        checked: true,
+        checked: false,
         label: "来宾"
       }
     ],
@@ -75,7 +77,29 @@ Page({
    * submit button click callback
    */
   bindFormSubmit: function(e) {
-    console.log(e)
+
+    var res = network.checkNetworkCondition();
+    
+    if ((res != undefined) || (res != false)) {
+      
+      if (this.data.select_type == "vehicle") {
+
+        var vehicle_data = dataUtils.dumpVehicleData(e, this)
+
+        if (vehicle_data != null) {
+          network.addCar(vehicle_data)
+        }
+
+      } else if (this.data.select_type == "visitor") {
+
+        var visitor_data = dataUtils.dumpVisitorData(e, this)
+
+        if (visitor_data != null) {
+          network.addVisitor(visitor_data)
+        }
+      }
+
+    }
   },
 
   /**
@@ -198,4 +222,5 @@ Page({
   onShareAppMessage: function () {
 
   }
+  
 })

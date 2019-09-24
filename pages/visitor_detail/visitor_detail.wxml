@@ -1,0 +1,97 @@
+<!--pages/visitor_detail/visitor_detail.wxml-->
+<!--pages/detail/detail.wxml-->
+<view class="container">
+
+  <block>
+    <!-- 车辆驾驶员信息录入 -->
+    <form bindsubmit="bindFormSubmit" style="width: 100%;">
+      <view wx:if="{{data_type === \"visitor\"}}" style="width: 100%; border: 1px solid;">
+        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">来宾信息</view>
+
+        <view class="info-basic">
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">单位：</view>
+            <input name="visitor_unit" class="input"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">级别：</view>
+            <picker name="visitor_level" class="picker" mode="selector" range="{{visitor_level}}" value="{{select_level_idx}}" bindchange="bindVisitorLevelChange">
+              <view class="picker-title">{{visitor_level[select_level_idx]}}</view>
+            </picker>
+            <input name="visitor_level_other" class="input" bindchange="bindVisitorLevelInput" wx:if="{{select_level_idx == 4}}"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">随行人数：</view>
+            <input name="visitor_count" class="input"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">抵达日期：</view>
+            <picker name="visitor_arrive_date" class="picker" mode="date" bindchange="bindArrivalDateChange" value="{{arrival_date}}">
+              <view class="picker-title">{{arrival_date}}</view>
+            </picker>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">抵达时间：</view>
+            <picker name="visitor_arrive_time" class="picker" mode="time" bindchange="bindArrivalTimeChange" value="{{arrival_time}}">
+              <view class="picker-title">{{arrival_time}}</view>
+            </picker>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">离开日期：</view>
+            <picker name="visitor_leave_date" class="picker" mode="date" bindchange="bindLeaveDateChange" value="{{leave_date}}">
+              <view class="picker-title">{{leave_date}}</view>
+            </picker>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">离开时间：</view>
+            <picker name="visitor_leave_time" class="picker" mode="time" bindchange="bindLeaveTimeChange" value="{{leave_time}}">
+              <view class="picker-title">{{leave_time}}</view>
+            </picker>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">抵达航班列车：</view>
+            <input name="visitor_arrive_flight" class="input"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">离开航班/列车：</view>
+            <input name="visitor_leave_flight" class="input"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">住宿酒店：</view>
+            <picker name="visitor_hotel_idx" class="picker" mode="selector" range="{{hotel_list}}" value="{{select_hotel_idx}}" bindchange="bindVisitorHotelChange">
+              <view class="picker-title">{{hotel_list[select_hotel_idx]}}</view>
+            </picker>
+            <input name="visitor_hotel_other" class="input" wx:if="{{select_hotel_idx == 5}}"></input>
+          </view>
+          
+        </view>
+
+        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">联系人信息</view>
+
+        <view class="info-basic">
+
+          
+
+        </view>
+
+      </view>
+
+      <view>
+        <button data-id="submit" formType="submit" class="submit-btn submit" hover-class="submit_hover" style="width: 95%; center: 0;">修改</button>
+        <button class="reset-btn reset" hover-class="reset_hover" style="width: 95%; center: 0;" bindtap="bindDeleteTap">删除</button>
+      </view>
+
+      </form>
+  </block>
+
+
+</view>

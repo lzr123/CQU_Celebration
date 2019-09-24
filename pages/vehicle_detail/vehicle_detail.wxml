@@ -1,0 +1,70 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+
+  <block>
+    <!-- 车辆驾驶员信息录入 -->
+    <form bindsubmit="bindFormSubmit" style="width: 100%;">
+      <view wx:if="{{data_type === \"vehicle\"}}" style="width: 100%; border: 1px solid;">
+        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">车辆信息</view>
+
+        <view class="info-basic">
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">车辆品牌：</view>
+            <picker class="picker" name="vehicle_brand" mode="selector" range="{{vehicle_brand}}" value="{{vehicle_data.select_brand_idx}}" bindchange="bindVehicleBrandChange">
+              <view class="picker-title">{{vehicle_brand[vehicle_data.select_brand_idx]}}</view>
+            </picker>
+            <view class="info-item-title" style="position: absolute; right: 0;">准乘{{vehicle_capacity[vehicle_data.select_brand_idx]}}人</view>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">车牌号：</view>
+            <input name="vehicle_id" class="input" bindchange="bindVehicleIDInput" value="{{vehicle_data.license}}"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">颜色：</view>
+            <picker name="vehicle_color_idx" class="picker" mode="selector" range="{{vehicle_color}}" value="{{vehicle_data.select_color_idx}}" bindchange="bindVehicleColorChange">
+              <view class="picker-title">{{vehicle_color[vehicle_data.select_color_idx]}}</view>
+            </picker>
+            <input name="vehicle_color_other" class="input" bindchange="bindVehicleOtherColorInput" wx:if="{{vehicle_data.select_color_idx == 5}}" value="{{vehicle_data.color}}"></input>
+          </view>
+
+        </view>
+
+        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">司机信息</view>
+
+        <view class="info-basic">
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">姓名：</view>
+            <input name="driver_name" class="input" bindchange="bindDriverNameInput" value="{{vehicle_data.driver_name}}"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row">
+            <view class="info-item-title">性别：</view>
+            <radio-group name="driver_gender" bindchange="bindDriverGenderChange">
+              <label class="radio-label"><radio value="male" checked="{{vehicle_data.driver_sex == \"male\"}}" class="radio-item"/>男</label>
+              <label class="radio-label"><radio value="female" checked="{{vehicle_data.driver_sex == \"female\"}}" class="radio-item"/>女</label>
+            </radio-group>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row">
+            <view class="info-item-title">电话：</view>
+            <input name="driver_tel" class="input" bindchange="bindDriverTelInput" value="{{vehicle_data.driver_tel}}"></input>
+          </view>
+
+        </view>
+
+      </view>
+
+      <view>
+        <button data-id="submit" formType="submit" class="submit-btn submit" hover-class="submit_hover" style="width: 95%; center: 0;">修改</button>
+        <button class="reset-btn reset" hover-class="reset_hover" style="width: 95%; center: 0;" bindtap="bindDeleteTap">删除</button>
+      </view>
+
+      </form>
+  </block>
+
+
+</view>

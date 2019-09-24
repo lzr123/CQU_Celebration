@@ -1,8 +1,12 @@
 {
   "pages": [
+    
+    "pages/management/management",
     "pages/departure/departure",
     "pages/edit/edit",
-    "pages/query/query"
+    "pages/query/query",
+    "pages/vehicle_detail/vehicle_detail",
+    "pages/visitor_detail/visitor_detail"
     
   ],
   "window": {
@@ -29,9 +33,13 @@
     },
     {
       "pagePath": "pages/edit/edit",
-      "text": "编辑",
+      "text": "添加",
       "iconPath": "resources/icons/edit.png",
       "selectedIconPath": "resources/icons/edit_sel.png"
+    },
+    {
+      "pagePath": "pages/management/management",
+      "text": "修改"
     }]
   },
   "sitemapLocation": "sitemap79.json"

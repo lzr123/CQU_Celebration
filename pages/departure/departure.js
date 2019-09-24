@@ -7,6 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    vehicle_brand: [
+      "奥迪", "大众", "长安", "商务", "考斯特"
+    ],
+
+
+
     visitor_info: {
       unit: "北京大学",
       count: 3,
@@ -21,7 +27,12 @@ Page({
     current_date: "",
     select_date: "",
     current_time: "",
-    select_time: ""
+    select_time: "",
+    select_brand_idx: 0,
+  },
+
+  bindSearchVehicleSubmit: function(e) {
+    console.log(e)
   },
 
   /**

@@ -90,3 +90,24 @@
   text-align: center;
   border: 1px #ddd;
 }
+
+.tabel-view {
+  border: 1px solid;
+  width: 100%;
+}
+
+.tabel-row {
+  display: flex;
+  flex-flow: row;
+  border: 1px solid;
+  margin: 5rpx;
+  justify-content: space-around;
+}
+
+.tabel-item {
+  border: 1px solid;
+  font-size: 35rpx;
+  margin: 3rpx;
+  width: 100%;
+  text-align: center;
+}
