@@ -1,6 +1,7 @@
 <!--pages/edit/edit.wxml-->
-<view class="background">
   <view class="container">
+
+    <image class="background" style="filter: blur(10rpx)" src="../../resources/images/test_background.jpg" mode="aspectFill"></image>
 
     <view style="color: #777777;">请选择录入信息种类</view>
     <block>
@@ -185,4 +186,3 @@
       <button  type="submit" class="submit-btn submit" hover-class="submit_hover">提交</button>
     </view> -->
   </view>
-</view>

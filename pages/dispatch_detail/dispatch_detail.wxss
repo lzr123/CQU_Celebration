@@ -1,5 +1,6 @@
 /* pages/dispatch_detail/dispatch_detail.wxss */
 @import "../common_style.wxss";
+
 .reset-btn {
   width: 320rpx;
   min-height: 30rpx;

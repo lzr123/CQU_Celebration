@@ -3,6 +3,8 @@
   padding: 3rpx;
   width: 95%;
   border: 1px solid;
+  border-radius: 10rpx;
+  background-color: #fafafa;
 }
 
 .info-basic {

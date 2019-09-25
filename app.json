@@ -1,10 +1,9 @@
 {
   "pages": [
+    "pages/departure/departure",
     "pages/dispatch_detail/dispatch_detail",
     "pages/management/management",
-    "pages/departure/departure",
     "pages/edit/edit",
-    "pages/query/query",
     "pages/vehicle_detail/vehicle_detail",
     "pages/visitor_detail/visitor_detail"
     
@@ -23,23 +22,21 @@
     "list": [
     {
       "pagePath": "pages/departure/departure",
-      "text": "分派"
-    },
-    {
-      "pagePath": "pages/query/query",
-      "text": "查询",
-      "iconPath": "resources/icons/search.png",
-      "selectedIconPath": "resources/icons/search_sel.png"
+      "text": "分派",
+      "iconPath": "resources/icons/dispatch.png",
+      "selectedIconPath": "resources/icons/dispatch_hover.png"
     },
     {
       "pagePath": "pages/edit/edit",
       "text": "添加",
       "iconPath": "resources/icons/edit.png",
-      "selectedIconPath": "resources/icons/edit_sel.png"
+      "selectedIconPath": "resources/icons/edit_hover.png"
     },
     {
       "pagePath": "pages/management/management",
-      "text": "修改"
+      "text": "查询",
+      "iconPath": "resources/icons/search.png",
+      "selectedIconPath": "resources/icons/search_hover.png"
     }]
   },
   "sitemapLocation": "sitemap79.json"
