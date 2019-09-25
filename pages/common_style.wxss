@@ -2,26 +2,31 @@
   margin: 5rpx;
   padding: 3rpx;
   width: 95%;
-  border: 1px solid;
+  /* border: 1px solid; */
   border-radius: 10rpx;
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
 }
 
 .info-basic {
-  border: 1px solid;
+  /* border: 1px solid; */
   padding: 10rpx;
+  margin: 10rpx;
+  border-radius: 10rpx;
+  background-color: #fafafa;
+  box-shadow: 2rpx 3rpx 3rpx 3rpx #cccccc;
 }
 
 .info-item {
   display: flex;
   flex-flow: row;
-  border: 1px solid;
-  padding: 5rpx;
+  /* border: 1px solid; */
+  /* border-bottom: 1px #dddddd solid; */
+  padding: 10rpx;
   position: relative;
 }
 
 .info-item-title {
-  border: 1px solid;
+  /* border: 1px solid; */
   font-size: 30rpx;
   padding: 5rpx;
   text-align: left;
@@ -29,7 +34,7 @@
 }
 
 .info-hint {
-  border: 1px solid;
+  /* border: 1px solid; */
   font-size: 30rpx;
   padding: 5rpx;
   text-align: left;
@@ -38,7 +43,7 @@
 }
 
 .input {
-  border: 1px solid;
+  border: 1px solid #cccccc;
   border-radius: 3px;
   margin-left: 10rpx;
   font-size: 30rpx;
@@ -50,13 +55,15 @@
 }
 
 .picker {
-  border: 1px solid;
+  /* border: 1px solid; */
+  
   margin-left: 10rpx;
   margin-right: 10rpx;
 }
 
 .picker-title {
-  border: 1px solid;
+  border: 1px solid #cccccc;
+  border-radius: 5rpx;
   font-size: 30rpx;
   text-align: center;
   padding: 5rpx;
@@ -64,7 +71,8 @@
 }
 
 .picker-container {
-  border: 1px solid;
+  /* border: 1px solid; */
+  box-shadow: 2rpx 3rpx 3rpx 3rpx #cccccc;
   margin: 5rpx;
   padding: 3rpx;
 }
@@ -94,20 +102,20 @@
 }
 
 .tabel-view {
-  border: 1px solid;
+  /* border: 1px solid; */
   width: 100%;
 }
 
 .tabel-row {
   display: flex;
   flex-flow: row;
-  border: 1px solid;
+  border-bottom: 1px solid #cccccc;
   margin: 5rpx;
   justify-content: space-around;
 }
 
 .tabel-item {
-  border: 1px solid;
+  border-right: 1px solid #cccccc;
   font-size: 35rpx;
   margin: 3rpx;
   width: 100%;

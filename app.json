@@ -1,11 +1,14 @@
 {
   "pages": [
+    
     "pages/departure/departure",
     "pages/dispatch_detail/dispatch_detail",
     "pages/management/management",
     "pages/edit/edit",
     "pages/vehicle_detail/vehicle_detail",
-    "pages/visitor_detail/visitor_detail"
+    "pages/visitor_detail/visitor_detail",
+
+    "pages/login/login"
     
   ],
   "window": {

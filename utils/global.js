@@ -14,10 +14,15 @@ const hotel_list = [
   "融汇丽笙酒店", "科苑酒店", "丽苑酒店", "上泉坊酒店", "不住宿", "其他"
 ]
 
+const appId = "wxd797ac1e7da0dea4"
+const appSecret = '31dc4d015c446bc9c0d5ff3f69232a05'
+
 module.exports = {
   vehicle_brand: vehicle_brand,
   vehicle_capacity: vehicle_capacity,
   vehicle_color: vehicle_color,
   visitor_level: visitor_level,
-  hotel_list: hotel_list
+  hotel_list: hotel_list,
+  appId: appId,
+  appSecret: appSecret
 }

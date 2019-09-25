@@ -1,7 +1,7 @@
 <!--pages/edit/edit.wxml-->
   <view class="container">
 
-    <image class="background" style="filter: blur(10rpx)" src="../../resources/images/test_background.jpg" mode="aspectFill"></image>
+    <!-- <image class="background" style="filter: blur(10rpx)" src="../../resources/images/test_background.jpg" mode="aspectFill"></image> -->
 
     <view style="color: #777777;">请选择录入信息种类</view>
     <block>
@@ -15,8 +15,8 @@
     <block>
     <!-- 车辆驾驶员信息录入 -->
     <form bindsubmit="bindFormSubmit" style="width: 100%;">
-      <view wx:if="{{select_type === \"vehicle\"}}" style="width: 100%; border: 1px solid;">
-        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">车辆信息</view>
+      <view wx:if="{{select_type === \"vehicle\"}}" style="width: 100%;">
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">车辆信息</view>
 
         <view class="info-basic">
 
@@ -43,7 +43,7 @@
 
         </view>
 
-        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">司机信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">司机信息</view>
 
         <view class="info-basic">
 
@@ -71,9 +71,9 @@
 
       <!-- 来宾联系人录入界面 -->
 
-      <view wx:elif="{{select_type === \"visitor\"}}" style="width: 100%; border: 1px solid;">
+      <view wx:elif="{{select_type === \"visitor\"}}" style="width: 100%;">
 
-        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">来宾信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">来宾信息</view>
 
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -142,7 +142,7 @@
 
         </view>
 
-        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">联络人信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">联络人信息</view>
 
         <!-- 联络人信息录入 -->
         <view class="info-basic">
