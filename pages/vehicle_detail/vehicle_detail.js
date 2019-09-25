@@ -68,8 +68,6 @@ Page({
   bindFormSubmit: function(e) {
     var self = this
 
-    console.log(e)
-
     wx.showModal({
       title: "警告",
       content: "确认修改记录？",

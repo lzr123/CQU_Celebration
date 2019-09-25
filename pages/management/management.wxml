@@ -65,6 +65,27 @@
           
         </view>
       </view>
+
+
+      <view class="info-basic" wx:if="{{select_type === \"dispatch\"}}">
+        <view class="tabel-view">
+
+          <view class="tabel-row">
+            <view class="tabel-item">单位</view>
+            <view class="tabel-item">级别</view>
+            <view class="tabel-item">车牌号</view>
+          </view>
+
+          <view wx:for="{{dispatch_data}}">
+            <view data-item-id="{{index}}" class="tabel-row" bindtap="bindTabelRowTap">
+              <view data-item-id="{{index}}" class="tabel-item">{{item.company}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.level}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.license}}</view>
+            </view>
+          </view>
+          
+        </view>
+      </view>
     </view>
   </block>
 

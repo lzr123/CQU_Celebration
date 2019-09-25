@@ -3,7 +3,6 @@ function checkNetworkCondition(page) {
   wx.getNetworkType({
     success: function(res) {
 
-      console.log(res)
       if((res.networkType === "none") || (res.networkType === "unknown")) {
         wx.showToast({
           title: "请检查网络连接",
@@ -174,8 +173,6 @@ function deleteCar(id) {
 
 function updateCar(id, data, page) {
 
-  console.log(data)
-  console.log(id)
 
   wx.request({
     url: "http://dispatch.ihackin.cn/api/cars/" + id,
@@ -186,6 +183,11 @@ function updateCar(id, data, page) {
     },
     success: function(res) {
       console.log(res)
+      wx.showToast({
+        title: '更新成功',
+        icon: 'none',
+        duration: 1000
+      })
     },
 
     fail: function(res) {
@@ -204,6 +206,7 @@ function searchVisitor(page) {
     url: 'http://dispatch.ihackin.cn/api/guests',
     method: 'GET',
     success: function(res) {
+
       page.setData({
         visitor_data: res.data
       })
@@ -218,6 +221,170 @@ function searchVisitor(page) {
   })
 }
 
+function deleteVisitor(id) {
+  wx.request({
+    url: "http://dispatch.ihackin.cn/api/guests/" + id,
+    method: "DELETE",
+    success: function(res) {
+      wx.showToast({
+        title: '删除成功',
+        icon: 'none',
+        duration: 1000
+      })
+    },
+    fail: function(res) {
+        wx.showToast({
+          title: '删除失败',
+          icon: 'none',
+          duratin: 1000
+        })
+    }
+  })
+}
+
+function updateVisitor(id, data, page) {
+
+  console.log(id)
+  console.log(data)
+
+  wx.request({
+    url: "http://dispatch.ihackin.cn/api/guests/" + id,
+    method: "PUT",
+    header: {
+      "Content-Type": "application/json"
+    },
+    data: data,
+    success: function(res) {
+
+      console.log(res)
+      if (res.statusCode == 200) {
+        wx.showToast({
+          title: '更新成功',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        wx.showToast({
+          title: "参数错误",
+          icon: 'none',
+          duration: 1000
+        })
+      }
+      
+    },
+    fail: function(res) {
+      wx.showToast({
+        title: "更新失败",
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  })
+}
+
+function searchCarCond(data, page) {
+
+  wx.request({
+    url: "http://dispatch.ihackin.cn/api/cars",
+    method: "GET",
+    header: {
+      "Content-Type": "application/json"
+    },
+    data: data,
+    success: function(res) {
+
+      if (res.statusCode == 200) {
+        
+        page.setData({
+          available_vehicles: res.data
+        })
+
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    },
+    fail: function(e) {
+      wx.showToast({
+        title: '获取可用车辆失败',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  })
+}
+
+function addDispatch(data) {
+
+  console.log(data)
+
+  wx.request({
+    url: "http://dispatch.ihackin.cn/api/deliveries",
+    method: "POST",
+    header: {
+      "Content-Type": "application/json"
+    },
+    data: data,
+
+    success: function(res) {
+      if (res.statusCode == 200) {
+        wx.showToast({
+          title: '添加成功',
+          icon: 'none',
+          duration: 500
+        })
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 500
+        })
+      }
+    },
+
+    fail: function(res) {
+      wx.showToast({
+        title: '添加失败',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  })
+}
+
+function searchDispatch(page) {
+
+  wx.request({
+    url: "http://dispatch.ihackin.cn/api/deliveries",
+    method: "GET",
+
+    success: function(res) {
+
+      if (res.statusCode == 200) {
+        page.setData({
+          dispatch_data: res.data
+        })
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    },
+    failed: function(res) {
+      wx.showToast({
+        title: '查询失败',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  })
+}
+
 module.exports = {
   checkNetworkCondition: checkNetworkCondition,
 
@@ -227,5 +394,12 @@ module.exports = {
   updateCar: updateCar,
 
   addVisitor: addVisitor,
-  searchVisitor: searchVisitor
+  searchVisitor: searchVisitor,
+  deleteVisitor: deleteVisitor,
+  updateVisitor: updateVisitor,
+
+  searchCarCond: searchCarCond,
+
+  addDispatch: addDispatch,
+  searchDispatch: searchDispatch
 }

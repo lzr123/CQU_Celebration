@@ -4,22 +4,24 @@
   <view class="visitor_search" style="width: 100%;">
     <view class="info-basic">
 
-      <view class="info-item" style="display: flex; flex-flow: row;">
-        <view class="info-item-title">来宾单位：</view>
-        <input class="input"></input>
-      </view>
+      <form bindsubmit="bindSearchVisitorSubmit">
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <view class="info-item-title">来宾单位：</view>
+          <input name="company" class="input"></input>
+        </view>
 
-      <view class="info-item" style="display: flex; flex-flow: row;">
-        <button class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;" bindtap="bindSearchVisitorTap">查找</button>
-      </view>
+        <view class="info-item" style="display: flex; flex-flow: row;">
+          <button formType="submit" class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;" bindta  p="bindSearchVisitorTap">查找</button>
+        </view>
+      </form>
   
     </view>
 
     <view class="info-basic" wx:if="{{visitor_info != null}}">
 
       <view class="info-item">
-        <view class="info-hint">单位：</view>
-        <view class="info-hint">{{visitor_info.unit}}</view>
+        <!-- <view class="info-hint">单位：</view>
+        <view class="info-hint">{{visitor_info.unit}}</view> -->
         <view class="info-hint">人数：</view>
         <view class="info-hint">{{visitor_info.count}}人</view>
         <view class="info-hint">级别：</view>
@@ -48,16 +50,34 @@
         <view class="info-item">
 
           <view class="picker-container" style="width: 100%">
-            <view class="info-item-title" style="text-align: center;">选择日期</view>
-            <picker name="date" class="picker" mode="date" value="{{select_date}}" bindchange="bindDateSelectChange">
-              <view class="picker-title">{{select_date}}</view>
+            <view class="info-item-title" style="text-align: center;">选择开始日期</view>
+            <picker name="date" class="picker" mode="date" value="{{select_start_date}}" bindchange="bindStartDateChange">
+              <view class="picker-title">{{select_start_date}}</view>
             </picker>
           </view>
 
           <view class="picker-container" style="width: 100%">
-            <view class="info-item-title" style="text-align: center;">选择时间</view>
-            <picker name="time" class="picker" mode="time" value="{{select_time}}" bindchange="bindTimeSelectChange">
-              <view class="picker-title">{{select_time}}</view>
+            <view class="info-item-title" style="text-align: center;">选择开始时间</view>
+            <picker name="time" class="picker" mode="time" value="{{select_start_time}}" bindchange="bindStartTimeChange">
+              <view class="picker-title">{{select_start_time}}</view>
+            </picker>
+          </view>
+
+        </view>
+
+        <view class="info-item">
+
+          <view class="picker-container" style="width: 100%">
+            <view class="info-item-title" style="text-align: center;">选择结束日期</view>
+            <picker name="date" class="picker" mode="date" value="{{select_end_date}}" bindchange="bindEndDateChange">
+              <view class="picker-title">{{select_end_date}}</view>
+            </picker>
+          </view>
+
+          <view class="picker-container" style="width: 100%">
+            <view class="info-item-title" style="text-align: center;">选择结束时间</view>
+            <picker name="time" class="picker" mode="time" value="{{select_end_time}}" bindchange="bindEndTimeChange">
+              <view class="picker-title">{{select_end_time}}</view>
             </picker>
           </view>
 
@@ -65,17 +85,26 @@
 
         <view class="info-item">
           <view class="info-item-title">选择车型</view>
-          <picker name="brand" class="picker" mode="selector" range="{{vehicle_brand}}" value="{{select_brand_idx}}">
+          <picker name="brand" class="picker" mode="selector" range="{{vehicle_brand}}" value="{{select_brand_idx}}" bindchange="bindVehicleBrandChange">
             <view class="picker-title">{{vehicle_brand[select_brand_idx]}}</view>
           </picker>
 
         </view>
-        <button formType="submit" class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;">提交</button>
+        <button formType="submit" class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;">查找</button>
       </form>
 
-      <view class="table-view">
-      <!-- ---TODO--- -->
-      </view>
+      <form bindsubmit="bindDispathSubmit">
+        <view class="info-item">
+
+          <checkbox-group name="vehicle_dispatch">
+            <view wx:for="{{available_vehicles}}">
+              <label style="font-size: 30rpx; margin: 5rpx; padding: 5rpx; text-align: center;"><checkbox class="checkbox-item" style="transform: scale(0.6)" value="{{index}}"/>{{item.license}} ----- {{item.driver_name}}</label>
+            </view>
+          </checkbox-group>
+
+        </view>
+        <button formType="submit" class="common-btn search-btn" hover-class="search-hover" style="width: 95%; center: 0;">提交</button>
+      </form>
 
     </view>
   </view>

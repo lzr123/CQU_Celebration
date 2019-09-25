@@ -36,7 +36,12 @@ Page({
     vehicle_data: null,
     select_vehicle_brand_idx: 5,
 
-    visitor_data: null
+    visitor_data: null,
+
+    dispatch_data: null,
+    dispatch_detail: null,
+    
+    temp_data: null
 
   },
 
@@ -55,9 +60,8 @@ Page({
   },
 
   bindSearchTap: function(e) {
-    // network.checkNetworkCondition(this);
 
-    // console.log(this.data.network_cond)
+    var self = this
 
     if (this.data.network_cond == true) {
 
@@ -65,6 +69,9 @@ Page({
         network.searchCar(this)
       } else if (this.data.select_type === 'visitor') {
         network.searchVisitor(this)
+      } else if (this.data.select_type === 'dispatch') {
+        network.searchDispatch(this)
+
       }
       
     }

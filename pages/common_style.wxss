@@ -111,3 +111,17 @@
   width: 100%;
   text-align: center;
 }
+
+.checkbox-label {
+  font-size: 30rpx;
+  text-align: center;
+  margin: 10rpx;
+  padding: 5rpx;
+  color: #888888;
+}
+
+.checkbox-item {
+  transform: scale(0.7);
+  align-items: center;
+  margin: 5rpx;
+}

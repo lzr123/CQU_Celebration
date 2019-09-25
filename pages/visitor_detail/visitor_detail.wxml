@@ -4,40 +4,39 @@
 
   <block>
     <!-- 车辆驾驶员信息录入 -->
-    <form bindsubmit="bindFormSubmit" style="width: 100%;">
-      <view wx:if="{{data_type === \"visitor\"}}" style="width: 100%; border: 1px solid;">
+    <form bindsubmit="bindFormSubmit" style="width: 100%; border: 1pxx solid;">
         <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">来宾信息</view>
 
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">单位：</view>
-            <input name="visitor_unit" class="input"></input>
+            <input name="visitor_unit" class="input" value="{{visitor_data.company}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">级别：</view>
-            <picker name="visitor_level" class="picker" mode="selector" range="{{visitor_level}}" value="{{select_level_idx}}" bindchange="bindVisitorLevelChange">
-              <view class="picker-title">{{visitor_level[select_level_idx]}}</view>
+            <picker name="visitor_level" class="picker" mode="selector" range="{{visitor_level}}" value="{{visitor_data.select_level_idx}}" bindchange="bindVisitorLevelChange">
+              <view class="picker-title">{{visitor_level[visitor_data.select_level_idx]}}</view>
             </picker>
-            <input name="visitor_level_other" class="input" bindchange="bindVisitorLevelInput" wx:if="{{select_level_idx == 4}}"></input>
+            <input name="visitor_level_other" class="input" bindchange="bindVisitorLevelInput" wx:if="{{visitor_data.select_level_idx == 4}}" value="{{visitor_data.level}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">随行人数：</view>
-            <input name="visitor_count" class="input"></input>
+            <input name="visitor_count" class="input" value="{{visitor_data.retinues}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">抵达日期：</view>
-            <picker name="visitor_arrive_date" class="picker" mode="date" bindchange="bindArrivalDateChange" value="{{arrival_date}}">
-              <view class="picker-title">{{arrival_date}}</view>
+            <picker name="visitor_arrive_date" class="picker" mode="date" bindchange="bindArrivalDateChange" value="{{arrive_date}}">
+              <view class="picker-title">{{arrive_date}}</view>
             </picker>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">抵达时间：</view>
-            <picker name="visitor_arrive_time" class="picker" mode="time" bindchange="bindArrivalTimeChange" value="{{arrival_time}}">
-              <view class="picker-title">{{arrival_time}}</view>
+            <picker name="visitor_arrive_time" class="picker" mode="time" bindchange="bindArrivalTimeChange" value="{{arrive_time}}">
+              <view class="picker-title">{{arrive_time}}</view>
             </picker>
           </view>
 
@@ -56,21 +55,21 @@
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
-            <view class="info-item-title">抵达航班列车：</view>
-            <input name="visitor_arrive_flight" class="input"></input>
+            <view class="info-item-title">抵达航班/列车：</view>
+            <input name="visitor_arrive_flight" class="input" value="{{visitor_data.arrive_flight}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">离开航班/列车：</view>
-            <input name="visitor_leave_flight" class="input"></input>
+            <input name="visitor_leave_flight" class="input" value="{{visitor_data.leave_flight}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">住宿酒店：</view>
-            <picker name="visitor_hotel_idx" class="picker" mode="selector" range="{{hotel_list}}" value="{{select_hotel_idx}}" bindchange="bindVisitorHotelChange">
-              <view class="picker-title">{{hotel_list[select_hotel_idx]}}</view>
+            <picker name="visitor_hotel_idx" class="picker" mode="selector" range="{{hotel_list}}" value="{{visitor_data.select_hotel_idx}}" bindchange="bindVisitorHotelChange">
+              <view class="picker-title">{{hotel_list[visitor_data.select_hotel_idx]}}</view>
             </picker>
-            <input name="visitor_hotel_other" class="input" wx:if="{{select_hotel_idx == 5}}"></input>
+            <input name="visitor_hotel_other" class="input" wx:if="{{visitor_data.select_hotel_idx == 5}}" value="{{visitor_data.hotel}}"></input>
           </view>
           
         </view>
@@ -78,12 +77,35 @@
         <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">联系人信息</view>
 
         <view class="info-basic">
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">工号：</view>
+            <input name="contactor_ID" class="input" bindchange="bindContactorIDInput" value="{{visitor_data.greeter_number}}"></input>
+          </view>
 
-          
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">姓名：</view>
+            <input name="contactor_name" class="input" bindchange="bindContactorNameInput" value="{{visitor_data.greeter_name}}"></input>
+          </view>
 
+          <view class="info-item" style="display: flex: flex-flow: row;">
+            <view class="info-item-title">性别：</view>
+            <radio-group name="contactor_gender" bindchange="bindContactorGenderChange" class="radio-gp">
+              <label class="radio-label"><radio value="male"  class="radio-item" checked="{{visitor_data.greeter_sex == 1}}"/>男</label>
+              <label class="radio-label"><radio value="female" class="radio-item" checked="{{visitor_data.greeter_sex == 0}}"/>女</label>
+            </radio-group>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">单位：</view>
+            <input name="contactor_unit" class="input" bindchange="bindContactorUnitInput" value="{{visitor_data.greeter_company}}"></input>
+          </view>
+
+          <view class="info-item" style="display: flex; flex-flow: row;">
+            <view class="info-item-title">电话：</view>
+            <input name="contactor_tel" class="input" value="{{driver_tel}}" name="contactor_tel" value="{{visitor_data.greeter_tel}}"></input>
+          </view>
+        
         </view>
-
-      </view>
 
       <view>
         <button data-id="submit" formType="submit" class="submit-btn submit" hover-class="submit_hover" style="width: 95%; center: 0;">修改</button>
