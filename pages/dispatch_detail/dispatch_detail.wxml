@@ -1,0 +1,43 @@
+<!--pages/dispatch_detail/dispatch_detail.wxml-->
+<view class="container">
+  <form style="width: 100%;">
+    <view class="info-basic">
+      <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">调派信息</view>
+
+      <view class="info-item">
+        <view class="info-hint">单位：</view>
+        <view class="info-hint">{{dispatch_info.company}}</view>
+        <view class="info-hint">人数：</view>
+        <view class="info-hint">{{dispatch_info.retinues}}人</view>
+        <view class="info-hint">级别：</view>
+        <view class="info-hint">{{dispatch_info.level}}</view>
+      </view>
+
+      <view class="info-item" style="display: flex; flex-flow: row;">
+        <view class="info-hint">开始时间</view>
+        <view class="info-hint">{{dispatch_info.arrive_date}}</view>
+        <view class="info-hint">{{dispatch_info.arrive_time}}</view>
+        <view class="info-hint">{{dispatch_info.arrive_flight}}</view>
+      </view>
+
+      <view class="info-item">
+        <view class="info-hint">结束时间</view>
+        <view class="info-hint">{{dispatch_info.leave_date}}</view>
+        <view class="info-hint">{{dispatch_info.leave_time}}</view>
+        <view class="info-hint">{{dispatch_info.leave_flight}}</view>
+      </view>
+
+      <view class="info-item">
+        <view class="info-hint">车牌号</view>
+        <view class="info-hint">{{dispatch_info.license}}</view>
+      </view>
+
+      <view class="info-item">
+        <view class="info-hint">司机</view>
+        <view class="info-hint">{{dispatch_info.driver_name}}</view>
+      </view>
+
+    </view>
+    <button type="mini" class="reset-btn reset" hover-class="reset_hover" style="width: 95%; center: 0;" bindtap="bindDeleteTap">删除</button>
+  </form>
+</view>

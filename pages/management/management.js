@@ -41,7 +41,6 @@ Page({
     dispatch_data: null,
     dispatch_detail: null,
     
-    temp_data: null
 
   },
 
@@ -100,6 +99,15 @@ Page({
 
       wx.navigateTo({
         url: "/pages/visitor_detail/visitor_detail?item=" + JSON.stringify(data)
+      })
+    } else if (this.data.select_type === 'dispatch') {
+
+      var data = {
+
+      }
+
+      wx.navigateTo({
+        url: '/pages/dispatch_detail/dispatch_detail?item=' + JSON.stringify(data),
       })
     }
       

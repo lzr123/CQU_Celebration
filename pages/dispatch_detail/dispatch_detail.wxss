@@ -1,0 +1,20 @@
+/* pages/dispatch_detail/dispatch_detail.wxss */
+@import "../common_style.wxss";
+.reset-btn {
+  width: 320rpx;
+  min-height: 30rpx;
+  margin: 15rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1px #ddd;
+}
+
+.reset {
+  background-color: #d65555;
+  color: #eeeeee;
+}
+
+.reset_hover {
+  background-color: #d65555;
+  opacity: 0.5;
+}

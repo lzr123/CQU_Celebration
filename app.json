@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/dispatch_detail/dispatch_detail",
     "pages/management/management",
     "pages/departure/departure",
     "pages/edit/edit",

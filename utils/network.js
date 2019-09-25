@@ -385,6 +385,38 @@ function searchDispatch(page) {
   })
 }
 
+function deleteDispatch(id) {
+
+  wx.request({
+    url: "http://dispatch.ihackin.cn/api/deliveries/" + id,
+    method: "DELETE",
+
+    success: function(res) {  
+      if (res.statusCode == 200) {
+        wx.showToast({
+          title: '删除成功',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    },
+
+    fail: function(res) {
+      wx.showToast({
+        title: '删除失败',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  })
+}
+
 module.exports = {
   checkNetworkCondition: checkNetworkCondition,
 
@@ -401,5 +433,6 @@ module.exports = {
   searchCarCond: searchCarCond,
 
   addDispatch: addDispatch,
-  searchDispatch: searchDispatch
+  searchDispatch: searchDispatch,
+  deleteDispatch: deleteDispatch
 }
