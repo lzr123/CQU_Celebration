@@ -64,7 +64,7 @@ Page({
             leave_datetime: detail.visitor_leave_date + ' ' + detail.visitor_leave_time,
             arrive_flight: detail.visitor_arrive_flight,
             leave_flight: detail.visitor_leave_flight,
-            hotel: detail.visitor_hotel_idx == 5 ? detail.visitor_hotel_other : this.data.hotel_list[detail.visitor_hotel_idx],
+            hotel: detail.visitor_hotel_idx == 5 ? detail.visitor_hotel_other : self.data.hotel_list[detail.visitor_hotel_idx],
 
             greeter_number: detail.contactor_ID,
             greeter_name: detail.contactor_name,

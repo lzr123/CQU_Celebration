@@ -14,9 +14,9 @@
 
     <block>
     <!-- 车辆驾驶员信息录入 -->
-    <form bindsubmit="bindFormSubmit" style="width: 100%;">
+    <form id="vehicle_form" bindsubmit="bindFormSubmit" style="width: 100%;">
       <view wx:if="{{select_type === \"vehicle\"}}" style="width: 100%;">
-        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">车辆信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #79cea5; color: #fefefe;">车辆信息</view>
 
         <view class="info-basic">
 
@@ -43,7 +43,7 @@
 
         </view>
 
-        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">司机信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #79cea5; color: #fefefe;">司机信息</view>
 
         <view class="info-basic">
 
@@ -73,7 +73,7 @@
 
       <view wx:elif="{{select_type === \"visitor\"}}" style="width: 100%;">
 
-        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">来宾信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #79cea5; color: #fefefe;">来宾信息</view>
 
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -142,7 +142,7 @@
 
         </view>
 
-        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #c4f7cf; color: #888888;">联络人信息</view>
+        <view style="border-radius: 10rpx; padding: 10rpx; margin: 10rpx; background-color: #79cea5; color: #fefefe;">联络人信息</view>
 
         <!-- 联络人信息录入 -->
         <view class="info-basic">

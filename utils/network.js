@@ -38,7 +38,7 @@ function addCar(data) {
   var self = this
 
   wx.request({
-    url: 'http://dispatch.ihackin.cn/api/cars',
+    url: 'https://dispatch.ihackin.cn/api/cars',
     method: 'POST',
     data: data,
     header: {
@@ -80,7 +80,7 @@ function addVisitor(data) {
   console.log(data)
 
   wx.request({
-    url: 'http://dispatch.ihackin.cn/api/guests',
+    url: 'https://dispatch.ihackin.cn/api/guests',
     method: "POST",
     data: data,
     header: {
@@ -119,7 +119,7 @@ function addVisitor(data) {
 function searchCar(page) {
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/cars",
+    url: "https://dispatch.ihackin.cn/api/cars",
     method: "GET",
     data: {
       "query_type": "all"
@@ -152,7 +152,7 @@ function searchCar(page) {
 
 function deleteCar(id) {
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/cars/" + id,
+    url: "https://dispatch.ihackin.cn/api/cars/" + id,
     method: "DELETE",
     success: function(res) {
       wx.showToast({
@@ -175,7 +175,7 @@ function updateCar(id, data, page) {
 
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/cars/" + id,
+    url: "https://dispatch.ihackin.cn/api/cars/" + id,
     method: "PUT",
     data: data,
     header: {
@@ -203,7 +203,7 @@ function updateCar(id, data, page) {
 function searchVisitor(page) {
 
   wx.request({
-    url: 'http://dispatch.ihackin.cn/api/guests',
+    url: 'https://dispatch.ihackin.cn/api/guests',
     method: 'GET',
     success: function(res) {
 
@@ -223,7 +223,7 @@ function searchVisitor(page) {
 
 function deleteVisitor(id) {
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/guests/" + id,
+    url: "https://dispatch.ihackin.cn/api/guests/" + id,
     method: "DELETE",
     success: function(res) {
       wx.showToast({
@@ -248,7 +248,7 @@ function updateVisitor(id, data, page) {
   console.log(data)
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/guests/" + id,
+    url: "https://dispatch.ihackin.cn/api/guests/" + id,
     method: "PUT",
     header: {
       "Content-Type": "application/json"
@@ -285,7 +285,7 @@ function updateVisitor(id, data, page) {
 function searchCarCond(data, page) {
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/cars",
+    url: "https://dispatch.ihackin.cn/api/cars",
     method: "GET",
     header: {
       "Content-Type": "application/json"
@@ -322,7 +322,7 @@ function addDispatch(data) {
   console.log(data)
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/deliveries",
+    url: "https://dispatch.ihackin.cn/api/deliveries",
     method: "POST",
     header: {
       "Content-Type": "application/json"
@@ -358,12 +358,13 @@ function addDispatch(data) {
 function searchDispatch(page) {
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/deliveries",
+    url: "https://dispatch.ihackin.cn/api/deliveries",
     method: "GET",
 
     success: function(res) {
 
       if (res.statusCode == 200) {
+
         page.setData({
           dispatch_data: res.data
         })
@@ -388,7 +389,7 @@ function searchDispatch(page) {
 function deleteDispatch(id) {
 
   wx.request({
-    url: "http://dispatch.ihackin.cn/api/deliveries/" + id,
+    url: "https://dispatch.ihackin.cn/api/deliveries/" + id,
     method: "DELETE",
 
     success: function(res) {  
@@ -417,6 +418,45 @@ function deleteDispatch(id) {
   })
 }
 
+function updateDispatch(id, data) {
+
+  console.log(data)
+
+  wx.request({
+    url: 'https://dispatch.ihackin.cn/api/deliveries/' + id,
+    method: "PUT",
+    header: {
+      "Content-Type": "application/json"
+    },
+    data: data,
+    
+    success: function(res) {
+
+      if (res.statusCode == 200) {
+        wx.showToast({
+          title: '修改成功',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 1000
+        })
+      }
+    },
+
+    fail: function(res) {
+      wx.showToast({
+        title: '修改失败',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  })
+}
+
 module.exports = {
   checkNetworkCondition: checkNetworkCondition,
 
@@ -434,5 +474,6 @@ module.exports = {
 
   addDispatch: addDispatch,
   searchDispatch: searchDispatch,
+  updateDispatch: updateDispatch,
   deleteDispatch: deleteDispatch
 }

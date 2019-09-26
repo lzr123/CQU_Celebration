@@ -4,8 +4,8 @@
 
   <block>
     <!-- 车辆驾驶员信息录入 -->
-    <form bindsubmit="bindFormSubmit" style="width: 100%; border: 1pxx solid;">
-        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">来宾信息</view>
+    <form bindsubmit="bindFormSubmit" style="width: 100%;">
+        <view style="padding: 10rpx; margin: 10rpx;">来宾信息</view>
 
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -74,7 +74,7 @@
           
         </view>
 
-        <view style="border: 1px solid; padding: 10rpx; margin: 10rpx;">联系人信息</view>
+        <view style="padding: 10rpx; margin: 10rpx;">联系人信息</view>
 
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">

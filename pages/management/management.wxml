@@ -74,13 +74,15 @@
             <view class="tabel-item">单位</view>
             <view class="tabel-item">级别</view>
             <view class="tabel-item">车牌号</view>
+            <view class="tabel-item">司机</view>
           </view>
 
           <view wx:for="{{dispatch_data}}">
             <view data-item-id="{{index}}" class="tabel-row" bindtap="bindTabelRowTap">
-              <view data-item-id="{{index}}" class="tabel-item">{{item.company}}</view>
-              <view data-item-id="{{index}}" class="tabel-item">{{item.level}}</view>
-              <view data-item-id="{{index}}" class="tabel-item">{{item.license}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.guest_info.company}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.guest_info.level}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.car_info.license}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.guest_info.greeter_name}}</view>
             </view>
           </view>
           

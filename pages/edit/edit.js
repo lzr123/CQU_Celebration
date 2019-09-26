@@ -44,7 +44,7 @@ Page({
     select_type: "vehicle",
 
     select_brand_idx: 0,
-    select_color_idx: 5,
+    select_color_idx: 0,
 
 
     select_level_idx: 0,
@@ -78,27 +78,27 @@ Page({
    */
   bindFormSubmit: function(e) {
 
-    var res = network.checkNetworkCondition();
-    
-    if ((res != undefined) || (res != false)) {
+    console.log(e)
+
+    var self = this
+  
       
-      if (this.data.select_type == "vehicle") {
+    if (this.data.select_type == "vehicle") {
+      var vehicle_data = dataUtils.dumpVehicleData(e, self)
 
-        var vehicle_data = dataUtils.dumpVehicleData(e, this)
+      if (vehicle_data != null) {
 
-        if (vehicle_data != null) {
-          network.addCar(vehicle_data)
-        }
+        network.addCar(vehicle_data)
 
-      } else if (this.data.select_type == "visitor") {
-
-        var visitor_data = dataUtils.dumpVisitorData(e, this)
-
-        if (visitor_data != null) {
-          network.addVisitor(visitor_data)
-        }
       }
+    } else if (this.data.select_type == "visitor") {
 
+      var visitor_data = dataUtils.dumpVisitorData(e, self)
+
+      if (visitor_data != null) {
+
+        network.addVisitor(visitor_data)
+      }
     }
   },
 

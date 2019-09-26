@@ -11,11 +11,30 @@
 }
 
 .reset {
-  background-color: #d65555;
+  background-color: #e689af;
   color: #eeeeee;
 }
 
 .reset_hover {
-  background-color: #d65555;
+  background-color: #e689af;
+  opacity: 0.5;
+}
+
+.submit-btn {
+  width: 320rpx;
+  min-height: 30rpx;
+  margin: 15rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: 1px #ddd;
+}
+
+.submit {
+  background-color: #79cea5;
+  color: #eeeeee;
+}
+
+.submit_hover {
+  background-color: #79cea5;
   opacity: 0.5;
 }

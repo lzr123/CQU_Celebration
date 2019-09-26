@@ -38,8 +38,7 @@ Page({
 
     visitor_data: null,
 
-    dispatch_data: null,
-    dispatch_detail: null,
+    dispatch_data: null
     
 
   },
@@ -54,7 +53,8 @@ Page({
     this.setData({
       select_type: e.detail.value,
       vehicle_data: null,
-      visitor_data: null
+      visitor_data: null,
+      dispatch_data: null
     })
   },
 
@@ -102,12 +102,10 @@ Page({
       })
     } else if (this.data.select_type === 'dispatch') {
 
-      var data = {
-
-      }
+      var data = this.data.dispatch_data[e.currentTarget.dataset.itemId]
 
       wx.navigateTo({
-        url: '/pages/dispatch_detail/dispatch_detail?item=' + JSON.stringify(data),
+        url: '/pages/dispatch_detail/dispatch_detail?item=' + JSON.stringify(data)
       })
     }
       
@@ -155,10 +153,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    var res = network.checkNetworkCondition(this);
+    var self = this
 
-    if ((res != undefined) || (res != false)) {
-      network.searchCar(this)
+    if (this.data.network_cond == true) {
+
+      if (this.data.select_type === 'vehicle') {
+        network.searchCar(this)
+      } else if (this.data.select_type === 'visitor') {
+        network.searchVisitor(this)
+      } else if (this.data.select_type === 'dispatch') {
+        network.searchDispatch(this)
+
+      }
+
     }
 
   },

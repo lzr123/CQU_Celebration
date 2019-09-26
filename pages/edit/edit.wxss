@@ -12,12 +12,12 @@
 }
 
 .submit {
-  background-color: #4aa8df;
+  background-color: #72b3ee;
   color: #eeeeee;
 }
 
 .submit_hover {
-  background-color: #4aa8df;
+  background-color: #72b3ee;
   opacity: 0.5;
 }
 

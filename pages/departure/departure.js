@@ -132,23 +132,27 @@ Page({
     
     var vehicle_list = e.detail.value.vehicle_dispatch
 
-    for(var i = 0; i < vehicle_list.length; i++) {
+    if (this.data.visitor_info) {
+      for (var i = 0; i < vehicle_list.length; i++) {
 
-      var car_id = this.data.available_vehicles[i].id
-      var guest_id = this.data.visitor_info.id
+        var car_id = this.data.available_vehicles[i].id
+        var guest_id = this.data.visitor_info.id
 
-      var data = {
-        car_id: car_id,
-        guest_id: guest_id,
-        start_time: this.data.select_start_date + ' ' + this.data.select_start_time,
-        back_time: this.data.select_end_date + ' ' + this.data.select_end_time
+        var data = {
+          car_id: car_id,
+          guest_id: guest_id,
+          start_time: this.data.select_start_date + ' ' + this.data.select_start_time,
+          back_time: this.data.select_end_date + ' ' + this.data.select_end_time
+        }
+
+        network.addDispatch(data)
+
+        setTimeout(function () { }, 1000)
+
       }
-
-      network.addDispatch(data)
-
-      setTimeout(function () {}, 1000)
-
     }
+
+    
   },
 
   /**

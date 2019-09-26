@@ -6,9 +6,7 @@
     "pages/management/management",
     "pages/edit/edit",
     "pages/vehicle_detail/vehicle_detail",
-    "pages/visitor_detail/visitor_detail",
-
-    "pages/login/login"
+    "pages/visitor_detail/visitor_detail"
     
   ],
   "window": {
