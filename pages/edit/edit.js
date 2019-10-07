@@ -39,7 +39,7 @@ Page({
       "融汇丽笙酒店", "科苑酒店", "丽苑酒店", "上泉坊酒店", "不住宿", "其他"
     ],
 
-
+    input_value: "",
 
     select_type: "vehicle",
 
@@ -78,8 +78,6 @@ Page({
    */
   bindFormSubmit: function(e) {
 
-    console.log(e)
-
     var self = this
   
       
@@ -97,9 +95,20 @@ Page({
 
       if (visitor_data != null) {
 
+        console.log(visitor_data)
+
         network.addVisitor(visitor_data)
       }
     }
+
+    this.setData({
+      input_value: "",
+      select_brand_idx: 0,
+      select_color_idx: 0,
+
+      select_hotel_idx: 0,
+      select_level_idx: 0
+    })
   },
 
   /**

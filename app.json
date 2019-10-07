@@ -28,17 +28,18 @@
       "selectedIconPath": "resources/icons/dispatch_hover.png"
     },
     {
-      "pagePath": "pages/edit/edit",
-      "text": "添加",
-      "iconPath": "resources/icons/edit.png",
-      "selectedIconPath": "resources/icons/edit_hover.png"
-    },
-    {
       "pagePath": "pages/management/management",
       "text": "查询",
       "iconPath": "resources/icons/search.png",
       "selectedIconPath": "resources/icons/search_hover.png"
-    }]
+    },
+    {
+      "pagePath": "pages/edit/edit",
+      "text": "添加",
+      "iconPath": "resources/icons/edit.png",
+      "selectedIconPath": "resources/icons/edit_hover.png"
+    }
+    ]
   },
   "sitemapLocation": "sitemap79.json"
 }

@@ -49,6 +49,8 @@
       <view class="info-item">
         <view class="info-hint">司机</view>
         <view class="info-hint">{{dispatch_info.driver_name}}</view>
+        <view class="info-hint">电话</view>
+        <view class="info-hint">{{dispatch_info.driver_tel}}</view>
       </view>
 
     </view>

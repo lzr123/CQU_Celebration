@@ -30,7 +30,7 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">车牌号：</view>
-            <input name="vehicle_id" class="input" bindchange="bindVehicleIDInput"></input>
+            <input name="vehicle_id" class="input" bindchange="bindVehicleIDInput" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -38,7 +38,7 @@
             <picker name="vehicle_color_idx" class="picker" mode="selector" range="{{vehicle_color}}" value="{{select_color_idx}}" bindchange="bindVehicleColorChange">
               <view class="picker-title">{{vehicle_color[select_color_idx]}}</view>
             </picker>
-            <input name="vehicle_color_other" class="input" bindchange="bindVehicleOtherColorInput" wx:if="{{select_color_idx == 5}}"></input>
+            <input name="vehicle_color_other" class="input" bindchange="bindVehicleOtherColorInput" wx:if="{{select_color_idx == 5}}" value="{{input_value}}"></input>
           </view>
 
         </view>
@@ -49,7 +49,7 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">姓名：</view>
-            <input name="driver_name" class="input" bindchange="bindDriverNameInput"></input>
+            <input name="driver_name" class="input" bindchange="bindDriverNameInput" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row">
@@ -62,7 +62,7 @@
 
           <view class="info-item" style="display: flex; flex-flow: row">
             <view class="info-item-title">电话：</view>
-            <input name="driver_tel" class="input" bindchange="bindDriverTelInput"></input>
+            <input name="driver_tel" class="input" bindchange="bindDriverTelInput" value="{{input_value}}"></input>
           </view>
 
         </view>
@@ -78,7 +78,7 @@
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">单位：</view>
-            <input name="visitor_unit" class="input"></input>
+            <input name="visitor_unit" class="input" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -91,7 +91,7 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">随行人数：</view>
-            <input name="visitor_count" class="input"></input>
+            <input name="visitor_count" class="input" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -124,12 +124,12 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">抵达航班列车：</view>
-            <input name="visitor_arrive_flight" class="input"></input>
+            <input name="visitor_arrive_flight" class="input" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">离开航班/列车：</view>
-            <input name="visitor_leave_flight" class="input"></input>
+            <input name="visitor_leave_flight" class="input" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
@@ -137,7 +137,7 @@
             <picker name="visitor_hotel_idx" class="picker" mode="selector" range="{{hotel_list}}" value="{{select_hotel_idx}}" bindchange="bindVisitorHotelChange">
               <view class="picker-title">{{hotel_list[select_hotel_idx]}}</view>
             </picker>
-            <input name="visitor_hotel_other" class="input" wx:if="{{select_hotel_idx == 5}}"></input>
+            <input name="visitor_hotel_other" class="input" wx:if="{{select_hotel_idx == 5}}" value="{{input_value}}"></input>
           </view>
 
         </view>
@@ -148,12 +148,12 @@
         <view class="info-basic">
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">工号：</view>
-            <input name="contactor_ID" class="input" bindchange="bindContactorIDInput"></input>
+            <input name="contactor_ID" class="input" bindchange="bindContactorIDInput" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">姓名：</view>
-            <input name="contactor_name" class="input" bindchange="bindContactorNameInput"></input>
+            <input name="contactor_name" class="input" bindchange="bindContactorNameInput" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex: flex-flow: row;">
@@ -166,12 +166,12 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">单位：</view>
-            <input name="contactor_unit" class="input" bindchange="bindContactorUnitInput"></input>
+            <input name="contactor_unit" class="input" bindchange="bindContactorUnitInput" value="{{input_value}}"></input>
           </view>
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">电话：</view>
-            <input name="contactor_tel" class="input" value="{{driver_tel}}" name="contactor_tel"></input>
+            <input name="contactor_tel" class="input" value="{{driver_tel}}" name="contactor_tel" value="{{input_value}}"></input>
           </view>
         </view>
       </view>

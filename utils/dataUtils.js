@@ -92,66 +92,6 @@ function dumpVisitorData(e, page) {
       icon: 'none',
       duration: 2000
     })
-  } else if (!validateInputStr(retinues)) {
-    wx.showToast({
-      title: '请输入来宾人数',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(arrive_datetime)) {
-    wx.showToast({
-      title: '请输入来宾到达日期时间',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(leave_datetime)) {
-    wx.showToast({
-      title: '请输入来宾离开日期时间',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(arrive_flight)) {
-    wx.showToast({
-      title: '请输入来宾到达航班/列车',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(leave_flight)) {
-    wx.showToast({
-      title: '请输入来宾离开航班/列车',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(hotel)) {
-    wx.showToast({
-      title: '请输入来宾住宿信息',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(greeter_number)) {
-    wx.showToast({
-      title: '请输入联系人工号',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(greeter_name)) {
-    wx.showToast({
-      title: "请输入联系人名字",
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(greeter_company)) {
-    wx.showToast({
-      title: '请输入联系人单位',
-      icon: 'none',
-      duration: 2000
-    })
-  } else if (!validateInputStr(greeter_tel)) {
-    wx.showToast({
-      title: '请输入联系人电话',
-      icon: 'none',
-      duration: 2000
-    })
   } else {
     data = {
       company: company,

@@ -24,7 +24,9 @@ Page({
     select_end_time: "",
     select_brand_idx: 0,
 
-    available_vehicles: null
+    available_vehicles: null,
+
+    input_value: ""
   },
 
   bindSearchVehicleSubmit: function(e) {
@@ -43,6 +45,8 @@ Page({
         end_time: end_time,
         brand: brand
       }
+
+      console.log(query_data)
 
       network.searchCarCond(query_data, self)
     }
@@ -100,7 +104,8 @@ Page({
 
   bindStartDateChange: function(e) {
     this.setData({
-      select_start_date: e.detail.value
+      select_start_date: e.detail.value,
+      select_end_date: e.detail.value
     })
   },
 
@@ -135,7 +140,9 @@ Page({
     if (this.data.visitor_info) {
       for (var i = 0; i < vehicle_list.length; i++) {
 
-        var car_id = this.data.available_vehicles[i].id
+        var index = vehicle_list[i]
+
+        var car_id = this.data.available_vehicles[index].id
         var guest_id = this.data.visitor_info.id
 
         var data = {
@@ -145,12 +152,29 @@ Page({
           back_time: this.data.select_end_date + ' ' + this.data.select_end_time
         }
 
+        console.log(data)
+
         network.addDispatch(data)
 
         setTimeout(function () { }, 1000)
 
       }
     }
+
+    var crt_datetime = util.formatTime(new Date())
+    var crt_split_time = crt_datetime.split(' ')
+    var crt_date = crt_split_time[0]
+    var crt_time = crt_split_time[1].split(':').slice(0, 2).join(':')
+
+    this.setData({
+      input_value: "",
+      select_start_date: crt_date,
+      select_start_time: crt_time,
+      select_end_date: crt_date,
+      select_end_time: crt_time,
+      available_vehicles: null,
+      select_brand_idx: 0
+    })
 
     
   },
@@ -192,6 +216,12 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+
+    this.setData({
+      visitor_data: null,
+      visitor_info: null,
+      available_vehicles: null
+    })
 
   },
 

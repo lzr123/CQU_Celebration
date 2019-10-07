@@ -15,6 +15,15 @@
         </picker>
       </view>
 
+      <view  class="info-basic" wx:if="{{select_type === \"visitor\"}}" style="display: flex; flex-flow: row;">
+        <picker class="picker" mode="selector" range="{{visitor_level}}" value="select_vehicle_brand_idx" bindchange="bindVisitorLevelChange">
+          <view class="picker-title">等级：{{visitor_level[select_level_idx]}}</view>
+        </picker>
+        <picker class="picker" mode="selector" range="{{dispatched}}" value="select_level_idx" bindchange="bindDispatchCondChange">
+          <view class="picker-title">是否分派：{{dispatched[select_dispatch_result_idx]}}</view>
+        </picker>
+      </view>
+
       <button class="common-btn submit"  hover-class="submit_hover" size='mini' style="width: 95%;" bindtap="bindSearchTap">查询</button>
     </block>
   
@@ -49,17 +58,17 @@
 
           <view class="tabel-row">
             <view class="tabel-item">来宾单位</view>
-            <view class="tabel-item">来宾人数</view>
             <view class="tabel-item">来宾级别</view>
             <view class="tabel-item">联系人</view>
+            <view class="tabel-item">是否派车</view>
           </view>
 
           <view wx:for="{{visitor_data}}">
             <view data-item-id="{{index}}" class="tabel-row" bindtap="bindTabelRowTap">
               <view data-item-id="{{index}}" class="tabel-item">{{item.company}}</view>
-              <view data-item-id="{{index}}" class="tabel-item">{{item.retinues}}</view>
               <view data-item-id="{{index}}" class="tabel-item">{{item.level}}</view>
               <view data-item-id="{{index}}" class="tabel-item">{{item.greeter_name}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.isDelivered == 0 ? '否' : '是'}}</view>
             </view>
           </view>
           
@@ -72,7 +81,7 @@
 
           <view class="tabel-row">
             <view class="tabel-item">单位</view>
-            <view class="tabel-item">级别</view>
+            <view class="tabel-item">联络人</view>
             <view class="tabel-item">车牌号</view>
             <view class="tabel-item">司机</view>
           </view>
@@ -80,9 +89,9 @@
           <view wx:for="{{dispatch_data}}">
             <view data-item-id="{{index}}" class="tabel-row" bindtap="bindTabelRowTap">
               <view data-item-id="{{index}}" class="tabel-item">{{item.guest_info.company}}</view>
-              <view data-item-id="{{index}}" class="tabel-item">{{item.guest_info.level}}</view>
-              <view data-item-id="{{index}}" class="tabel-item">{{item.car_info.license}}</view>
               <view data-item-id="{{index}}" class="tabel-item">{{item.guest_info.greeter_name}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.car_info.license}}</view>
+              <view data-item-id="{{index}}" class="tabel-item">{{item.car_info.driver_name}}</view>
             </view>
           </view>
           

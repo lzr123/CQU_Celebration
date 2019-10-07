@@ -29,12 +29,22 @@ Page({
       "奥迪", "大众", "长安", "商务", "考斯特", "全部"
     ],
 
+    visitor_level: [
+      "全部", "副厅级", "正部级", "副部级", "其他"
+    ],
+
+    dispatched: [
+      '全部', '是', '否'
+    ],
+
     network_cond: true,
 
     select_type: "vehicle",
 
     vehicle_data: null,
     select_vehicle_brand_idx: 5,
+    select_level_idx: 0,
+    select_dispatch_result_idx: 0,
 
     visitor_data: null,
 
@@ -49,13 +59,43 @@ Page({
     })
   },
 
+  bindVisitorLevelChange: function(e) {
+    this.setData({
+      select_level_idx: e.detail.value
+    })
+  },
+
+  bindDispatchCondChange: function(e) {
+    this.setData({
+      select_dispatch_result_idx: e.detail.value
+    })
+  },
+
   bindTypeChange: function(e) {
+
+    var self = this
+
     this.setData({
       select_type: e.detail.value,
       vehicle_data: null,
       visitor_data: null,
       dispatch_data: null
     })
+
+    if (this.data.network_cond == true) {
+
+      if (this.data.select_type === 'vehicle') {
+        network.searchCar(this)
+      } else if (this.data.select_type === 'visitor') {
+        network.searchVisitor(this)
+      } else if (this.data.select_type === 'dispatch') {
+        network.searchDispatch(this)
+
+        setTimeout(function () { console.log(self.data.dispatch_data) }, 2000)
+
+      }
+
+    }
   },
 
   bindSearchTap: function(e) {
@@ -70,6 +110,8 @@ Page({
         network.searchVisitor(this)
       } else if (this.data.select_type === 'dispatch') {
         network.searchDispatch(this)
+
+        setTimeout(function() { console.log(self.data.dispatch_data) },  2000)
 
       }
       
@@ -132,6 +174,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    var self = this
+
+    if (this.data.network_cond == true) {
+
+      if (this.data.select_type === 'vehicle') {
+        network.searchCar(this)
+      } else if (this.data.select_type === 'visitor') {
+        network.searchVisitor(this)
+      } else if (this.data.select_type === 'dispatch') {
+        network.searchDispatch(this)
+
+        setTimeout(function () { console.log(self.data.dispatch_data) }, 2000)
+
+      }
+
+    }
 
   },
 

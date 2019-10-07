@@ -125,18 +125,23 @@ function searchCar(page) {
       "query_type": "all"
     },
     success: function(res) {
-
-      var vehicle_data = res.data
-
-      console.log(res)
-
-      if (page.data.select_vehicle_brand_idx != 5) {
-        vehicle_data = vehicle_data.filter(a => a.brand == page.data.vehicle_brand[page.data.select_vehicle_brand_idx])
-      } 
-
-      page.setData({
-        vehicle_data: vehicle_data
-      })
+      
+      if (res.statusCode == 200) {
+        var vehicle_data = res.data
+        console.log(res)
+        if (page.data.select_vehicle_brand_idx != 5) {
+          vehicle_data = vehicle_data.filter(a => a.brand == page.data.vehicle_brand[page.data.select_vehicle_brand_idx])
+        }
+        page.setData({
+          vehicle_data: vehicle_data
+        })
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 1000
+        })
+      }
     },
     fail: function(res) {
       console.log(res)
@@ -207,9 +212,37 @@ function searchVisitor(page) {
     method: 'GET',
     success: function(res) {
 
-      page.setData({
-        visitor_data: res.data
-      })
+      if (res.statusCode == 200) {
+        var visitor_data = res.data
+
+        if ((page.data.select_level_idx >= 1) && (page.data.select_level_idx <= 3)) {
+          visitor_data = visitor_data.filter(a => a.level == page.data.visitor_level[page.data.select_level_idx])
+        } else if (page.data.select_level_idx == 4) {
+          visitor_data = visitor_data.filter(a => {
+            (a.level != '副厅级') && (a.level != '正部级') && (a.level != '副部级')
+          })
+        } else {
+          visitor_data = visitor_data
+        }
+
+        if (page.data.select_dispatch_result_idx == 0) {
+          visitor_data = visitor_data
+        } else if (page.data.select_dispatch_result_idx == 1) {
+          visitor_data = visitor_data.filter(a => a.isDelivered == 1)
+        } else if (page.data.select_dispatch_result_idx == 2) {
+          visitor_data = visitor_data.filter(a => a.isDelivered == 0)
+        }
+
+        page.setData({
+          visitor_data: visitor_data
+        })
+      } else {
+        wx.showToast({
+          title: '参数错误',
+          icon: 'none',
+          duration: 1000
+        })
+      }
     },
     fail: function(res) {
       wx.showToast({

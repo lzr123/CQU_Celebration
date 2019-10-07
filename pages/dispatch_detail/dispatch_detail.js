@@ -99,7 +99,7 @@ Page({
     var dispatch_data = JSON.parse(options.item)
 
     var start_time = dispatch_data.start_time
-    var back_time = dispatch_data.start_time.split(' ')[0] + ' ' + dispatch_data.back_time
+    var back_time = dispatch_data.back_time
 
     var start_date = start_time.split(' ')[0]
     var start_time = start_time.split(' ')[1].split(':').slice(0, 2).join(':')
@@ -122,6 +122,7 @@ Page({
       back_time: back_time,
       license: car_info.license,
       driver_name: car_info.driver_name,
+      driver_tel: car_info.driver_tel,
       brand: car_info.brand
     }
 

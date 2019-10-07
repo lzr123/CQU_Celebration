@@ -7,7 +7,7 @@
       <form bindsubmit="bindSearchVisitorSubmit">
         <view class="info-item" style="display: flex; flex-flow: row;">
           <view class="info-item-title">来宾单位：</view>
-          <input name="company" class="input"></input>
+          <input name="company" class="input" value="{{input_value}}"></input>
         </view>
 
         <view class="info-item" style="display: flex; flex-flow: row;">
