@@ -1,6 +1,7 @@
 // pages/visitor_detail/visitor_detail.js
 var global = require("../../utils/global.js")
 var network = require("../../utils/network.js")
+var dataUtils = require('../../utils/dataUtils.js')
 Page({
 
   /**
@@ -17,11 +18,14 @@ Page({
     leave_date: "",
     leave_time: "",
 
+    select_level_idx: 0,
+    select_hotel_idx: 0,
+
     visitor_data: {
       id: "",
       company: "",
       level: "",
-      select_level_idx: "",
+      
       retinues: 0,
       arrive_datetime: "",
       leave_datetime: "",
@@ -29,7 +33,7 @@ Page({
       arrige_flight: "",
       leave_flight: "",
       hotel: "",
-      select_hotel_idx: "",
+      
       
       greeter_number: "",
       greeter_name: "",
@@ -43,8 +47,6 @@ Page({
   bindFormSubmit: function(e) {
     var self = this
 
-    console.log(e)
-
     wx.showModal({
       title: "警告",
       content: "确认修改记录？",
@@ -56,22 +58,9 @@ Page({
         if (res.confirm == 1) {
           var detail = e.detail.value
 
-          var data = {
-            company: detail.visitor_unit,
-            level: detail.visitor_level == 4 ? detail.visitor_level_other : self.data.visitor_level[detail.visitor_level],
-            retinues: detail.visitor_count,
-            arrive_datetime: detail.visitor_arrive_date + ' ' + detail.visitor_arrive_time,
-            leave_datetime: detail.visitor_leave_date + ' ' + detail.visitor_leave_time,
-            arrive_flight: detail.visitor_arrive_flight,
-            leave_flight: detail.visitor_leave_flight,
-            hotel: detail.visitor_hotel_idx == 5 ? detail.visitor_hotel_other : self.data.hotel_list[detail.visitor_hotel_idx],
+          var data = dataUtils.dumpVisitorData(e, self)
 
-            greeter_number: detail.contactor_ID,
-            greeter_name: detail.contactor_name,
-            greeter_sex: detail.contactor_gender == 'male' ? 1 : 0,
-            greeter_company: detail.contactor_unit,
-            greeter_tel: detail.contactor_tel
-          }
+          console.log(e)
 
           network.updateVisitor(self.data.visitor_data.id, data, self)
 
@@ -112,22 +101,17 @@ Page({
   },
 
   bindVisitorLevelChange: function(e) {
-    var data = this.data.visitor_data
 
-    data.select_level_idx = e.detail.value
 
     this.setData({
-      visitor_data: data
+      select_level_idx: e.detail.value
     })
   },
 
   bindVisitorHotelChange: function(e) {
-    var data = this.data.visitor_data
-
-    data.select_hotel_idx = e.detail.value
 
     this.setData({
-      visitor_data: data
+      select_hotel_idx: e.detail.value
     })
   },
 
@@ -192,14 +176,14 @@ Page({
         id: item.id,
         company: item.company,
         level: item.level,
-        select_level_idx: level_idx,
+        
         retinues: item.retinues,
         arrive_datetime: item.arrive_datetime,
         leave_datetime: item.leave_datetime,
         arrive_flight: item.arrive_flight,
         leave_flight: item.leave_flight,
         hotel: item.hotel,
-        select_hotel_idx: hotel_idx,
+        
 
         greeter_number: item.greeter_number,
         greeter_name: item.greeter_name,
@@ -207,6 +191,9 @@ Page({
         greeter_company: item.greeter_company,
         greeter_tel: item.greeter_tel
       },
+
+      select_level_idx: level_idx,
+      select_hotel_idx: hotel_idx,
 
       arrive_date: arrive_date,
       arrive_time: arrive_time,

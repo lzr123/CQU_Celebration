@@ -11,12 +11,12 @@
 }
 
 .reset {
-  background-color: #e689af;
+  background-color: #dd3a24;
   color: #eeeeee;
 }
 
 .reset_hover {
-  background-color: #e689af;
+  background-color: #dd3a24;
   opacity: 0.5;
 }
 
@@ -30,11 +30,11 @@
 }
 
 .submit {
-  background-color: #79cea5;
+  background-color: #0db130;
   color: #eeeeee;
 }
 
 .submit_hover {
-  background-color: #79cea5;
+  background-color: #0db130;
   opacity: 0.5;
 }

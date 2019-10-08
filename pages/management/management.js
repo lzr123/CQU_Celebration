@@ -91,8 +91,6 @@ Page({
       } else if (this.data.select_type === 'dispatch') {
         network.searchDispatch(this)
 
-        setTimeout(function () { console.log(self.data.dispatch_data) }, 2000)
-
       }
 
     }

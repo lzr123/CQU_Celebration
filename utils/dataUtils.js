@@ -93,23 +93,55 @@ function dumpVisitorData(e, page) {
       duration: 2000
     })
   } else {
+
     data = {
       company: company,
-      level: level,
-      retinues: retinues,
-      arrive_datetime: arrive_datetime,
-      leave_datetime: leave_datetime,
-      arrive_flight: arrive_flight,
-      leave_flight: leave_flight,
-      hotel: hotel,
-
-      greeter_number: greeter_number,
-      greeter_name: greeter_name,
-      greeter_sex: greeter_sex,
-      greeter_company: greeter_company,
-      greeter_tel: greeter_tel
+      level: level
     }
+
+    if (retinues.length != 0) {
+      data.retinues = retinues
+    }
+
+    if (arrive_datetime.length != 0) {
+      data.arrive_datetime = arrive_datetime
+    }
+    
+    if (leave_datetime.length != 0) {
+      data.leave_datetime = leave_datetime
+    }     
+    
+    if (arrive_flight.length != 0) {
+      data.arrive_flight = arrive_flight
+    }
+
+    if (leave_flight.length != 0) {
+      data.leave_flight = leave_flight
+    }
+
+    if (hotel.length != 0) {
+      data.hotel = hotel
+    }
+
+    if (greeter_number.length != 0) {
+      data.greeter_number = greeter_number
+    }
+
+    if (greeter_name.length != 0) {
+      data.greeter_name = greeter_name
+    }
+
+    if (greeter_company.length != 0) {
+      data.greeter_company = greeter_company
+    }
+
+    if (greeter_tel.length != 0) {
+      data.greeter_tel = greeter_tel
+    }
+
   }
+
+  data.greeter_sex = greeter_sex
 
   return data
 }

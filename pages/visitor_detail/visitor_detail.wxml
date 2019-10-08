@@ -15,8 +15,8 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">级别：</view>
-            <picker name="visitor_level" class="picker" mode="selector" range="{{visitor_level}}" value="{{visitor_data.select_level_idx}}" bindchange="bindVisitorLevelChange">
-              <view class="picker-title">{{visitor_level[visitor_data.select_level_idx]}}</view>
+            <picker name="visitor_level" class="picker" mode="selector" range="{{visitor_level}}" value="{{select_level_idx}}" bindchange="bindVisitorLevelChange">
+              <view class="picker-title">{{visitor_level[select_level_idx]}}</view>
             </picker>
             <input name="visitor_level_other" class="input" bindchange="bindVisitorLevelInput" wx:if="{{visitor_data.select_level_idx == 4}}" value="{{visitor_data.level}}"></input>
           </view>
@@ -66,8 +66,8 @@
 
           <view class="info-item" style="display: flex; flex-flow: row;">
             <view class="info-item-title">住宿酒店：</view>
-            <picker name="visitor_hotel_idx" class="picker" mode="selector" range="{{hotel_list}}" value="{{visitor_data.select_hotel_idx}}" bindchange="bindVisitorHotelChange">
-              <view class="picker-title">{{hotel_list[visitor_data.select_hotel_idx]}}</view>
+            <picker name="visitor_hotel_idx" class="picker" mode="selector" range="{{hotel_list}}" value="{{select_hotel_idx}}" bindchange="bindVisitorHotelChange">
+              <view class="picker-title">{{hotel_list[select_hotel_idx]}}</view>
             </picker>
             <input name="visitor_hotel_other" class="input" wx:if="{{visitor_data.select_hotel_idx == 5}}" value="{{visitor_data.hotel}}"></input>
           </view>

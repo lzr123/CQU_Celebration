@@ -277,9 +277,6 @@ function deleteVisitor(id) {
 
 function updateVisitor(id, data, page) {
 
-  console.log(id)
-  console.log(data)
-
   wx.request({
     url: "https://dispatch.ihackin.cn/api/guests/" + id,
     method: "PUT",
